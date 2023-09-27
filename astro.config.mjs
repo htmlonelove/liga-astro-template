@@ -27,11 +27,12 @@ export default defineConfig({
     format: 'file', // вытаскивает вложенные страницы в корень src/pages/subpage/subpage.html => dist/subpage.html
     assets: 'assets', // собирает скрипты и стили в папку dist/assets
     assetsPrefix: '.', // добавляет `.` в пути скриптов и стилей
-    inlineStylesheets: 'never', // запрещает инлайн стилей
+    // inlineStylesheets: 'never', // запрещает инлайн стилей
   },
   vite: {
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
+      cssCodeSplit: false,
       rollupOptions: {
         output: {
           entryFileNames: 'assets/scripts.js',
