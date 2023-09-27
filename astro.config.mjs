@@ -7,16 +7,16 @@ import { defineConfig } from 'astro/config'
 //     console.log(`Your project has ${plugins.length} Vite plugins.`)
 //     console.table(plugins)
 //   }
-// })
+// }) // показывает все подключенные плагины
 
-const noAttr = () => {
-  return ({
-      name: "no-attribute",
-      transformIndexHtml(html) {
-       return html.replace(`type="module"`, "");
-      }
-  })
-}
+// const noAttr = () => {
+//   return ({
+//       name: "no-attribute",
+//       transformIndexHtml(html) {
+//        return html.replace(`type="module"`, "");
+//       }
+//   })
+// } // должен убирать type="module" из тега скрипт
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,7 +32,7 @@ export default defineConfig({
   vite: {
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
-      cssCodeSplit: false,
+      cssCodeSplit: false, // css в один файл
       rollupOptions: {
         output: {
           entryFileNames: 'assets/scripts.js',
@@ -43,6 +43,6 @@ export default defineConfig({
       },
     },
   },
-  plugins: [noAttr()],
+  plugins: [],
 })
 
