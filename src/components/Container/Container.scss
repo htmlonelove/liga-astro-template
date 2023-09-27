@@ -1,0 +1,32 @@
+@import "@styles/mixins.scss";
+
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 var(--pd-lg);
+
+  @include vp-1024 {
+    padding: 0 var(--pd-md);
+  }
+
+  @include vp-767 {
+    padding: 0 var(--pd-sm);
+  }
+
+  &--no-p {
+    padding: 0;
+  }
+
+  &--big {
+    padding: 0 220px;
+
+    @include vp-1024 {
+      padding: 0 140px;
+    }
+
+    @include vp-767 {
+      padding: 0 40px;
+    }
+  }
+}

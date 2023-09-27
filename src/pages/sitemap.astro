@@ -1,0 +1,38 @@
+---
+import Layout from '@layouts/Layout.astro'
+import Container from '@components/Container'
+import Title from '@ui/Title'
+
+const pageList = [{
+  name: 'UI-kit',
+  href: 'ui-kit.html',
+}, {
+  name: 'Главная',
+  href: 'index.html',
+}]
+---
+
+<Layout title="Список страниц">
+  <main>
+    <div class="sitemap">
+      <Container
+        mod="big"
+      >
+        <div class='sitemap__logo'>
+          <img src='./svg/logo.svg' width={192} height={24} alt='лого' />
+        </div>
+        <Title
+          title="Список страниц"
+          size='m'
+        />
+        <ol>
+          {pageList.map((item) => (
+            <li>
+              <a href={item.href}>{item.name}</a>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,16 @@
+---
+import './Title.scss'
+
+interface Props {
+  title: string
+  Tag?: 'h1' | 'h2' | 'h3'
+  className?: string
+  mod?: ('white' | 'uppercase')[]
+  size: 'h' | 'xl' | 'l' | 'm' | 's' | 'xs' | 'n'
+}
+
+const { title, Tag = 'h1', className, size = 'm', mod } = Astro.props
+---
+<Tag
+  class:list={['title', `title--${size}`, className, mod?.map((el) => `title--${el}`)]}
+>{ title }</Tag>

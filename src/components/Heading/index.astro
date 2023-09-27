@@ -1,0 +1,15 @@
+---
+import './Heading.scss'
+
+interface Props {
+  title: string
+  subtitle?: string
+  Tag?: 'h1' | 'h2'
+}
+
+const { title, subtitle, Tag = 'h1' } = Astro.props
+---
+<div class='heading'>
+  <Tag>{ title }</Tag>
+  {subtitle && <p>{ subtitle }</p>}
+</div>

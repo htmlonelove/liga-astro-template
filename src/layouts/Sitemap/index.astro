@@ -1,0 +1,35 @@
+---
+import './Sitemap.scss'
+import Container from '@components/Container/index.astro'
+import Title from '@ui/Title/index.astro'
+
+const pageList = [{
+  name: 'UI-kit',
+  href: 'ui-kit.html',
+}, {
+  name: 'Главная',
+  href: 'index.html',
+}]
+---
+
+<div class="sitemap">
+  <Container
+    mod="big"
+  >
+    <div class='sitemap__logo'>
+      <img src='./logo.svg' width={192} height={24} alt='лого' />
+    </div>
+    <Title
+      title="Список страниц"
+      size='m'
+    />
+    <ol>
+      {pageList.map((item) => (
+        <li>
+          <a href={item.href}>{item.name}</a>
+        </li>
+      ))}
+    </ol>
+  </Container>
+</div>
+
