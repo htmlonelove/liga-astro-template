@@ -20,5 +20,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: build
-          folder: build
+          folder: dist
           clean: true
