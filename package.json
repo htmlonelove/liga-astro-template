@@ -14,7 +14,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "webp": "gulp createWebp",
-    "lint": "npx eslint src/**/* --fix & npx stylelint **/*.scss --fix"
+    "lint": "npx eslint src/**/* --fix & npx stylelint **/*.scss --fix",
+    "gen:component": "node ./util/component/gen-component"
   },
   "dependencies": {
     "astro": "^3.1.1"
