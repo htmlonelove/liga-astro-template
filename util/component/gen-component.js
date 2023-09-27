@@ -12,7 +12,7 @@ const SEPARATOR = ':'
 // eslint-disable-next-line no-undef
 const userInput = process.argv[process.argv.length - 1]
 let componentName = null
-let OUTPUT_FOLDER = null
+let outputFolder = null
 
 const outputFolders = {
   component: '/components',
@@ -22,14 +22,14 @@ const outputFolders = {
 
 const defineNames = new Promise((next, reject) => {
   if (userInput.indexOf(SEPARATOR) === -1) {
-    OUTPUT_FOLDER = ROOT + outputFolders['component']
+    outputFolder = ROOT + outputFolders['component']
     componentName = userInput
     next()
   } else {
     componentName = userInput.slice(0, userInput.indexOf(':'))
     const folder = userInput.slice(userInput.indexOf(':') + 1, userInput.length)
     if (outputFolders[folder]) {
-      OUTPUT_FOLDER = ROOT + outputFolders[folder]
+      outputFolder = ROOT + outputFolders[folder]
       next()
     } else {
       reject(`❌ ':${folder}' not allowed;\n👉 allowed options -${Object.keys(outputFolders).map((el) => ` :${el}`)}`)
@@ -52,7 +52,7 @@ const checkComponentName = new Promise((next, reject) => {
 })
 
 const checkOverride = new Promise((next, reject) => {
-  if (existsSync(`${OUTPUT_FOLDER}/${componentName}`)) {
+  if (existsSync(`${outputFolder}/${componentName}`)) {
     reject('❌ folder already exists')
     return
   }
@@ -61,18 +61,18 @@ const checkOverride = new Promise((next, reject) => {
 })
 
 const createFolder = () => new Promise((next) => {
-  mkdirSync(`${OUTPUT_FOLDER}/${componentName}`, { recursive: true })
+  mkdirSync(`${outputFolder}/${componentName}`, { recursive: true })
 
   next()
 })
 
 const createComponent = () => new Promise((next) => {
   writeFileSync(
-      `${OUTPUT_FOLDER}/${componentName}/index.astro`,
+      `${outputFolder}/${componentName}/index.astro`,
       astroTemplate(componentName)
   )
   writeFileSync(
-      `${OUTPUT_FOLDER}/${componentName}/${componentName}.module.scss`,
+      `${outputFolder}/${componentName}/${componentName}.module.scss`,
       scssTemplate()
   )
 
@@ -82,5 +82,5 @@ const createComponent = () => new Promise((next) => {
 Promise.all([defineNames, checkComponentName, checkOverride])
     .then(() => console.info('✨ Checks completed!\n💫 Generating component...'))
     .then(() => Promise.all([createFolder(), createComponent()]))
-    .then(() => console.info(`✅ Created: '${componentName}' in '${OUTPUT_FOLDER}'`))
+    .then(() => console.info(`✅ Created: '${componentName}' in '${outputFolder}'`))
     .catch((err) => console.error(err))
