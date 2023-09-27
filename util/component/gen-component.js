@@ -38,12 +38,9 @@ const defineNames = new Promise((next, reject) => {
 })
 
 
-
 const checkComponentName = new Promise((next, reject) => {
   if (resolve(__dirname, FILENAME) == componentName) {
-    // TODO эта проверка на пустое имя компонента стрем)
-    reject('🚫 enter component name')
-    return
+    return reject('🚫 enter component name')
   }
 
   componentName =
@@ -53,8 +50,7 @@ const checkComponentName = new Promise((next, reject) => {
 
 const checkOverride = new Promise((next, reject) => {
   if (existsSync(`${outputFolder}/${componentName}`)) {
-    reject('❌ folder already exists')
-    return
+    return reject('❌ folder already exists')
   }
 
   next()
