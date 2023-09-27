@@ -68,7 +68,7 @@ const createComponent = () => new Promise((next) => {
       astroTemplate(componentName)
   )
   writeFileSync(
-      `${outputFolder}/${componentName}/${componentName}.module.scss`,
+      `${outputFolder}/${componentName}/${componentName}.scss`,
       scssTemplate()
   )
 
