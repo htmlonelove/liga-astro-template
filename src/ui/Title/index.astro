@@ -2,15 +2,15 @@
 import './Title.scss'
 
 interface Props {
-  title: string
-  Tag?: 'h1' | 'h2' | 'h3'
+  text: string
+  Tag?: 'h1' | 'h2' | 'h3' | 'p'
   className?: string
   mod?: ('white' | 'uppercase')[]
-  size: 'h' | 'xl' | 'l' | 'm' | 's' | 'xs' | 'n'
+  size?: 'xl' | 'l' | 'm' | 's' | 'xs' | 'n'
 }
 
-const { title, Tag = 'h1', className, size = 'm', mod } = Astro.props
+const { text, Tag = 'h1', className, size, mod } = Astro.props
 ---
 <Tag
-  class:list={['title', `title--${size}`, className, mod?.map((el) => `title--${el}`)]}
->{ title }</Tag>
+  class:list={['title', className, size && `title--${size}`, mod?.map((el) => `title--${el}`)]}
+>{ text }</Tag>

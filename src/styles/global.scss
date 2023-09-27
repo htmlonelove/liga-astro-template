@@ -24,14 +24,19 @@ html {
   text-rendering: optimizeLegibility;
   // если по прежнему есть проблемы с выравниванием
   // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
+  scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.wrapper main {
+main {
+  flex-grow: 1;
   width: 100%;
   min-width: 100%;
 }

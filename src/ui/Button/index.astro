@@ -1,0 +1,24 @@
+---
+import './Button.scss'
+
+interface Props {
+  text: 'string'
+  type?: 'submit' | 'button' | 'reset'
+  icon?: string
+  className?: string
+  mod?: ('fill')[]
+}
+
+const { type = 'button', className, icon, text, mod } = Astro.props
+---
+
+<button
+  class:list={['button', className, mod?.map((el) => `button--${el}`)]}
+  type={type}
+>
+  {icon &&
+    <span class="button__icon">
+      <Fragment set:html={icon}/>
+    </span>}
+  <p class='button__text'>{text}</p>
+</button>

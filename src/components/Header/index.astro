@@ -1,0 +1,13 @@
+---
+import Logo from '@svg/logo'
+import './Header.scss'
+import Container from '@components/Container'
+---
+
+<header class="header">
+  <Container>
+    <div class="header__logo">
+      <Fragment set:html={Logo} />
+    </div>
+  </Container>
+</header>

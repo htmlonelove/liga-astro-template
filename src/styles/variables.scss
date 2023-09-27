@@ -3,10 +3,14 @@
 
   // colors
   // Если нет палитры от дизайнера, то для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
-  --color-lavender: #f8f5fc;
-  --color-fedora: #58485e;
   --color-white: #ffffff;
   --color-black: #000000;
+
+  // --- ui
+  --color-lavender: #f8f5fc;
+  --color-fedora: #58485e;
+  --color-east-side: #B695C2;
+  // ---
 
   // container
   --pd-lg: 72px;
@@ -17,3 +21,5 @@
 $vp-1920: 1920px;
 $vp-1024: 1024px;
 $vp-768: 768px;
+
+$transition: 0.3s ease;

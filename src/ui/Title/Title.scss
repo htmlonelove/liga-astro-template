@@ -1,13 +1,16 @@
 .title {
   font-size: 38px;
   line-height: 100%;
+  font-weight: 400;
   color: var(--color-fedora);
 
   &--xl {
+    font-weight: 500;
     font-size: 58px;
   }
 
   &--l {
+    font-weight: 500;
     font-size: 48px;
   }
 
@@ -25,5 +28,9 @@
 
   &--n {
     font-size: 15px;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
   }
 }
