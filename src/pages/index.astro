@@ -1,10 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import MainLayout from '@layouts/Main'
+import Container from '@components/Container'
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
+<MainLayout title="Главная">
+  <Container>
     <img src="./images/fasad.jpg" width={500} height={250} alt="bg"/>
     <img src="./images/gory.jpg" width={500} height={250} alt="bg"/>
-  </main>
-</Layout>
+  </Container>
+</MainLayout>
