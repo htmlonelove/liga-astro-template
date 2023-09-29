@@ -2,7 +2,7 @@
 import './Button.scss'
 
 interface Props {
-  text: 'string'
+  text: string
   type?: 'submit' | 'button' | 'reset'
   icon?: string
   className?: string
@@ -18,7 +18,7 @@ const { type = 'button', className, icon, text, mod } = Astro.props
 >
   {icon &&
     <span class="button__icon">
-      <Fragment set:html={icon}/>
+      <Fragment set:html={icon} />
     </span>}
   <p class='button__text'>{text}</p>
 </button>

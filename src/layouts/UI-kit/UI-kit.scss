@@ -63,7 +63,7 @@
 
     &:hover {
       opacity: 1;
-      border-color: #B8B1B9;
+      border-color: #b8b1b9;
     }
   }
 
@@ -74,7 +74,7 @@
     padding: 15px 15px 50px;
 
     background: #f8f5fc;
-    border: 2px solid #B8B1B9;
+    border: 2px solid #b8b1b9;
     border-radius: 16px;
 
     transition: opacity 0.3s ease;
@@ -82,7 +82,7 @@
     pointer-events: none;
 
     &::after {
-      content: 'Навигация';
+      content: "Навигация";
       margin-bottom: -37px;
       margin-top: 30px;
       display: block;
