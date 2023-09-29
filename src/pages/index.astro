@@ -1,11 +1,43 @@
 ---
 import MainLayout from '@layouts/Main'
 import Container from '@components/Container'
+import Picture from '@ui/Picture'
+import Title from '@ui/Title'
 ---
 
 <MainLayout title="Главная">
   <Container>
-    <img src="./images/fasad.jpg" width={500} height={250} alt="bg"/>
-    <img src="./images/gory.jpg" width={500} height={250} alt="bg"/>
+    <Picture
+      name='gory'
+      type='jpg'
+      width={500}
+      height={250}
+      alt='bg'
+    />
+    <Title
+      text='Title size=`xl`'
+      Tag='h2'
+      size='xl'
+    />
+    <Title
+      text='Title size=`l`'
+      Tag='h3'
+      size='l'
+    />
+    <Title
+      text='Title size=`m`'
+      Tag='h3'
+    />
+    <Title
+      text='Title size=`s`'
+      Tag='p'
+      size='s'
+    />
+    <Title
+      text='Title size=`s` --uppercase'
+      Tag='p'
+      size='s'
+      mod={['uppercase']}
+    />
   </Container>
 </MainLayout>
