@@ -1,1 +1,2 @@
-// / <reference types="astro/client" />
+/* eslint-disable */
+/// <reference types="astro/client" />
