@@ -4,7 +4,8 @@ module.exports = {
         'es2021': true
     },
     'globals': {
-      'Fragment': 'readonly'
+      'Fragment': 'readonly',
+      'ImageMetadata': 'readonly'
     },
     'overrides': [
         {
