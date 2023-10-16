@@ -1,0 +1,23 @@
+---
+import './Modal.scss'
+import IconClose from '@svg/icon-close.svg'
+
+interface Props {
+  className?: string
+  mod?: 'preload'
+  name: string
+}
+
+const { mod, className, name } = Astro.props;
+---
+<div class:list={['modal', className, { [`modal--${mod}`]: mod }]} data-modal=`${name}`>
+  <div class="modal__wrapper">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__content">
+      <slot />
+      <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+        <Fragment set:html={IconClose} />
+      </button>
+    </div>
+  </div>
+</div>

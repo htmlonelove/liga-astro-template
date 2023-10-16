@@ -7,14 +7,16 @@ interface Props {
   icon?: ImageMetadata
   className?: string
   mod?: ('fill')[]
+  modal?: string
 }
 
-const { type = 'button', className, icon, text, mod } = Astro.props
+const { type = 'button', className, icon, text, mod, modal } = Astro.props
 ---
 
 <button
   class:list={['button', className, mod?.map((el) => `button--${el}`)]}
   type={type}
+  data-open-modal={modal}
 >
   {icon &&
     <span class="button__icon">

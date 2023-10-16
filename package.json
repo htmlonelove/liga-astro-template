@@ -18,7 +18,8 @@
     "gen:component": "node ./util/component/gen-component"
   },
   "dependencies": {
-    "astro": "^3.1.1"
+    "astro": "^3.1.1",
+    "scroll-lock": "^2.1.5"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^6.7.2",

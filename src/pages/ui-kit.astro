@@ -1,6 +1,7 @@
 ---
 import UIKitLayout from '@layouts/UI-kit'
 import Container from '@components/Container'
+import Modal from '@components/Modal'
 import Title from '@ui/Title'
 import Button from '@ui/Button'
 import ArrowLeftIcon from '@svg/arrow-left.svg'
@@ -52,8 +53,20 @@ import ArrowLeftIcon from '@svg/arrow-left.svg'
           text="Кнопка с фоном"
         />
       </section>
+      <section data-ui-section>
+        <h2 class="ui__title" data-ui-title>Модалки</h2>
+        <Button
+          text="Стандартная модалка"
+          modal="example"
+        />
+      </section>
     </Container>
   </div>
+  <Modal
+    name='example'
+  >
+    <h1>Example modal</h1>
+  </Modal>
 </UIKitLayout>
 
 
