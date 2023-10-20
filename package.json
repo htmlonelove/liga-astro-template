@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "astro": "^3.1.1",
-    "scroll-lock": "^2.1.5"
+    "scroll-lock": "2.1.5",
+    "swiper": "9.4.1"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^6.7.2",
