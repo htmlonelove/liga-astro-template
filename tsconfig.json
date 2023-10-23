@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*/index.astro"],
-      "@layouts/*": ["src/layouts/*/index.astro"],
-      "@ui/*": ["src/ui/*/index.astro"],
+      "@components/*": ["src/components/*.astro"],
+      "@layouts/*": ["src/layouts/*.astro"],
+      "@ui/*": ["src/ui/*.astro"],
       "@styles/*": ["src/styles/*"],
       "@svg/*": ["public/svg/*?raw"],
     }
