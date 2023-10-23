@@ -3,6 +3,7 @@ import MainLayout from '@layouts/Main/Main'
 import Container from '@components/Container/Container'
 import Picture from '@ui/Picture/Picture'
 import Title from '@ui/Title/Title'
+import Modal from '@components/Modal/Modal';
 ---
 
 <MainLayout title="Главная">
@@ -40,4 +41,10 @@ import Title from '@ui/Title/Title'
       mod={['uppercase']}
     />
   </Container>
+
+  <Fragment slot="modals">
+    <Modal name='example' >
+      <h1>Example modal</h1>
+    </Modal>
+  </Fragment>
 </MainLayout>
