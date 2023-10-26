@@ -64,7 +64,7 @@ const createFolder = () => new Promise((next) => {
 
 const createComponent = () => new Promise((next) => {
   writeFileSync(
-      `${outputFolder}/${componentName}/index.astro`,
+      `${outputFolder}/${componentName}/${componentName}.astro`,
       astroTemplate(componentName)
   )
   writeFileSync(
