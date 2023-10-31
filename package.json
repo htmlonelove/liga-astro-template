@@ -6,14 +6,13 @@
     "IE 11",
     "Firefox ESR"
   ],
-  "version": "0.0.2",
+  "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev --open --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "webp": "gulp createWebp",
     "lint": "eslint src/**/* --fix & stylelint src/**/*.scss --fix & editorconfig-checker",
     "gen:component": "node ./util/component/gen-component"
   },
@@ -28,8 +27,6 @@
     "editorconfig-checker": "^5.1.1",
     "eslint": "^8.50.0",
     "eslint-plugin-astro": "^0.29.0",
-    "gulp": "^4.0.2",
-    "gulp-webp": "4.0.1",
     "postcss": "^8.4.30",
     "sass": "^1.67.0",
     "stylelint": "^15.10.3",

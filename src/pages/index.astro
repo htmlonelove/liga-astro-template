@@ -1,45 +1,42 @@
 ---
 import MainLayout from '@layouts/Main/Main'
 import Container from '@components/Container/Container'
-import Picture from '@ui/Picture/Picture'
-import Title from '@ui/Title/Title'
-import Modal from '@components/Modal/Modal';
+// import Picture from '@ui/Picture/Picture'
+import Modal from '@components/Modal/Modal'
+import { Picture } from 'astro:assets'
+import myImage from './../../public/images/mountain.jpg'
 ---
 
 <MainLayout title="Главная">
   <Container>
+    <!-- Эксперементально!
+      Миксин генерирует все изображения из изначальной картинки (х1, х2, webp, avif)
+      нужно только изначально прокинуть картинку х2
+
+      Используйте по согласованию с бэком или если бэка нет
+      Обязательно нужно указать ширину, чтобы правильно сгенерировались картинки х1.5
+
+      если не подходит, то используйте миксин из ui/Picture/Picture.astro (пример закомментирован ниже)
+      генерация и оптимизация картинок через gulp webp, gulp optimize
+
+      п.с. удалите коммент при подготовке проекта
+    -->
     <Picture
+      src={myImage}
+      alt='example image'
+      quality={'high'}
+      formats={['webp']}
+      fallbackFormat="jpg"
+      width={myImage.width / 1.25}
+      densities={[1.5, 2]}
+    />
+    <!-- <Picture
       name='gory'
       type='jpg'
       width={500}
       height={250}
       alt='bg'
-    />
-    <Title
-      text='Title size=`xl`'
-      Tag='h2'
-      size='xl'
-    />
-    <Title
-      text='Title size=`l`'
-      Tag='h3'
-      size='l'
-    />
-    <Title
-      text='Title size=`m`'
-      Tag='h3'
-    />
-    <Title
-      text='Title size=`s`'
-      Tag='p'
-      size='s'
-    />
-    <Title
-      text='Title size=`s` --uppercase'
-      Tag='p'
-      size='s'
-      mod={['uppercase']}
-    />
+    /> -->
   </Container>
 
   <Fragment slot="modals">

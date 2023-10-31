@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, squooshImageService } from 'astro/config'
 
 // const outputPluginStats = () => ({
 //   name: 'output-plugin-stats',
@@ -11,10 +11,11 @@ import { defineConfig } from 'astro/config'
 
 // const noAttr = () => {
 //   return ({
-//       name: "no-attribute",
-//       transformIndexHtml(html) {
-//        return html.replace(`type="module"`, "");
-//       }
+//     name: 'no-attribute',
+//     enforce: 'post',
+//     transformIndexHtml(html) {
+//       return html.replace('type="module"', '')
+//     },
 //   })
 // } // должен убирать type="module" из тега скрипт
 
@@ -29,19 +30,24 @@ export default defineConfig({
     assetsPrefix: '.', // добавляет `.` в пути скриптов и стилей
     // inlineStylesheets: 'never', // запрещает инлайн стилей
   },
+  image: {
+    service: squooshImageService(),
+  },
   vite: {
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
       cssCodeSplit: false, // css в один файл
       rollupOptions: {
         output: {
-          entryFileNames: 'assets/scripts.js',
+          entryFileNames: 'scripts.js',
           assetFileNames: (assetInfo) => {
-            return `assets/${assetInfo.name}` // тут задается имя для css всех страниц
+            return assetInfo.name === 'style.css'
+              ? `${assetInfo.name}` // задается имя и папка (корень) для css
+              : `assets/${assetInfo.name}` // задается имя и папка картинкам
           },
         },
       },
     },
+    plugins: [],
   },
-  plugins: [],
 })
