@@ -13,4 +13,5 @@ const { text, Tag = 'h1', className, size, mod } = Astro.props
 ---
 <Tag
   class:list={['title', className, size && `title--${size}`, mod?.map((el) => `title--${el}`)]}
->{ text }</Tag>
+  set:html={text}
+/>
