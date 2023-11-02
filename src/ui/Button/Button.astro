@@ -8,15 +8,17 @@ interface Props {
   className?: string
   mod?: ('fill')[]
   modal?: string
+  props?: any
 }
 
-const { type = 'button', className, icon, text, mod, modal } = Astro.props
+const { type = 'button', className, icon, text, mod, modal, props } = Astro.props
 ---
 
 <button
   class:list={['button', className, mod?.map((el) => `button--${el}`)]}
   type={type}
   data-open-modal={modal}
+  {...props}
 >
   {icon &&
     <span class="button__icon">
