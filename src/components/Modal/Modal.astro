@@ -1,6 +1,6 @@
 ---
+import { Sprite } from 'astro-icon'
 import './Modal.scss'
-import IconClose from '@svg/icon-close.svg'
 
 interface Props {
   className?: string
@@ -16,7 +16,7 @@ const { mod, className, name } = Astro.props;
     <div class="modal__content">
       <slot />
       <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
-        <Fragment set:html={IconClose} />
+        <Sprite name="icon-close" />
       </button>
     </div>
   </div>

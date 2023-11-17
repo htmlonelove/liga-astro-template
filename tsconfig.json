@@ -7,7 +7,6 @@
       "@layouts/*": ["src/layouts/*.astro"],
       "@ui/*": ["src/ui/*.astro"],
       "@styles/*": ["src/styles/*"],
-      "@svg/*": ["public/svg/*?raw"],
     }
   }
 }

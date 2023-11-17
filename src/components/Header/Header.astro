@@ -1,13 +1,13 @@
 ---
+import Icon from 'astro-icon'
 import './Header.scss'
 import Container from '@components/Container/Container'
-import Logo from '@svg/logo.svg'
 ---
 
 <header class="header">
   <Container>
     <div class="header__logo">
-      <Fragment set:html={Logo} />
+      <Icon name="logo" />
     </div>
   </Container>
 </header>

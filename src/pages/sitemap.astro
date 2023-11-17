@@ -2,6 +2,7 @@
 import Layout from '@layouts/root/root'
 import Container from '@components/Container/Container'
 import Title from '@ui/Title/Title'
+import Icon from 'astro-icon'
 
 const pageList = [{
   name: 'UI-kit',
@@ -19,7 +20,7 @@ const pageList = [{
         mod="big"
       >
         <div class='sitemap__logo'>
-          <img src='./svg/logo.svg' width={192} height={24} alt='лого' />
+          <Icon name="logo" />
         </div>
         <Title
           text="Список страниц"

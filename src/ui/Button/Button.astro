@@ -1,10 +1,11 @@
 ---
 import './Button.scss'
+import { Sprite } from 'astro-icon'
 
 interface Props {
   text: string
   type?: 'submit' | 'button' | 'reset'
-  icon?: ImageMetadata
+  icon?: string
   className?: string
   mod?: ('fill')[]
   modal?: string
@@ -22,7 +23,7 @@ const { type = 'button', className, icon, text, mod, modal, props } = Astro.prop
 >
   {icon &&
     <span class="button__icon">
-      <Fragment set:html={icon} />
+      <Sprite name={icon} />
     </span>}
   <p class='button__text' set:html={text} />
 </button>
