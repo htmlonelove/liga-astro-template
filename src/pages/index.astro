@@ -1,9 +1,9 @@
 ---
-import MainLayout from '@layouts/Main/Main'
 import Container from '@components/Container/Container'
 import Modal from '@components/Modal/Modal'
+import myImage from '@images/mountain.jpg'
+import MainLayout from '@layouts/Main/Main'
 import { Picture } from 'astro:assets'
-import myImage from './../images/mountain.jpg'
 ---
 
 <MainLayout title="Главная">
@@ -13,7 +13,7 @@ import myImage from './../images/mountain.jpg'
       нужно только изначально прокинуть картинку х2
 
       Используйте по согласованию с бэком или если бэка нет
-      Обязательно нужно указать ширину, чтобы правильно сгенерировались картинки х1.5
+      Обязательно указывайте ширину, чтобы правильно сгенерировались картинки
 
       если не подходит, то используйте миксин из ui/Picture/Picture.astro
       генерация и оптимизация картинок через gulp webp, gulp optimize
@@ -22,12 +22,12 @@ import myImage from './../images/mountain.jpg'
     -->
     <Picture
       src={myImage}
-      alt='example image'
+      alt='Example image.'
       quality={'high'}
       formats={['webp']}
       fallbackFormat="jpg"
-      width={myImage.width / 1.25}
-      densities={[1.5, 2]}
+      width={800}
+      densities={[2]}
     />
   </Container>
 
