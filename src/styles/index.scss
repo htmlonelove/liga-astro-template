@@ -1,4 +1,16 @@
-@import "@styles/fonts.scss";
-@import "@styles/normalize.scss";
-@import "@styles/global.scss";
-@import "@styles/variables.scss";
+// Vendors
+// ---------------------------------------
+@import "@styles/vendors/normalize.scss";
+@import "@styles/vendors/swiper-bundle-9.4.1.scss";
+
+// Globals
+// ---------------------------------------
+@import "@styles/global/variables.scss";
+@import "@styles/global/mixins.scss";
+@import "@styles/global/fonts.scss";
+@import "@styles/global/global.scss";
+@import "@styles/global/utils.scss";
+
+// Components
+// ---------------------------------------
+// @import "@styles/components/...";

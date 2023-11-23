@@ -25,5 +25,5 @@ const { type = 'button', className, icon, text, mod, modal, props } = Astro.prop
     <span class="button__icon">
       <Sprite name={icon} />
     </span>}
-  <p class='button__text' set:html={text} />
+  <span class='button__text' set:html={text} />
 </button>

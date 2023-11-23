@@ -1,0 +1,31 @@
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hidden-from-tablet {
+  @include vp-768 {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+  }
+}
+
+.hidden-desktop-only {
+  @include vp-1024 {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+  }
+}
+
+.hidden-tablet-only {
+  @include vp-768-1023 {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+  }
+}
+
+.hidden-mobile-only {
+  @include vp-767 {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+  }
+}

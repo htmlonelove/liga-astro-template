@@ -1,6 +1,8 @@
 @import "./variables.scss";
 
-@mixin vp-1024 {
+// Desktop-first
+
+@mixin vp-1023 {
   @media (max-width: ($vp-1024 - 1px)) {
     @content;
   }
@@ -12,17 +14,39 @@
   }
 }
 
+// Mobile-first
+
+@mixin vp-1024 {
+  @media (min-width: $vp-1024) {
+    @content;
+  }
+}
+
+@mixin vp-768 {
+  @media (min-width: $vp-768) {
+    @content;
+  }
+}
+
+// Only
+
+@mixin vp-768-1023 {
+  @media (min-width: $vp-768) and (max-width: ($vp-1024 - 1px)) {
+    @content;
+  }
+}
+
 // ------
 
 @mixin hover-focus {
+  &:focus-visible {
+    @content;
+  }
+
   @media (hover: hover) {
     &:hover {
       @content;
     }
-  }
-
-  &:focus {
-    @content;
   }
 }
 
@@ -35,13 +59,21 @@
 }
 
 @mixin focus {
-  &:focus {
+  &:focus-visible {
     @content;
   }
 }
 
 @mixin active {
   &:active {
+    @content;
+  }
+}
+
+@mixin disabled {
+  &:disabled,
+  &[inert],
+  &.is-disabled {
     @content;
   }
 }
