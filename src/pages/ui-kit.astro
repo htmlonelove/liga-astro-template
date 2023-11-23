@@ -14,28 +14,29 @@ import Button from '@ui/Button/Button'
         <h2 class="ui__title" data-ui-title>Заголовки</h2>
         <Title
           text='Title size=`xl`'
-          Tag='h2'
+          as='h1'
           size='xl'
         />
         <Title
-          text='Title size=`l`'
-          Tag='h3'
-          size='l'
+          text='Title size=`lg`'
+          as='h2'
+          size='lg'
         />
         <Title
-          text='Title size=`m`'
-          Tag='h3'
+          text='Title size=`md`'
+          as='h3'
+          size='md'
         />
         <Title
-          text='Title size=`s`'
-          Tag='p'
-          size='s'
+          text='Title size=`sm`'
+          as='p'
+          size='sm'
         />
         <Title
-          text='Title size=`s` --uppercase'
-          Tag='p'
-          size='s'
-          mod={['uppercase']}
+          text='Title size=`sm` --uppercase'
+          as='p'
+          size='sm'
+          mods={['uppercase']}
         />
       </section>
       <section data-ui-section>
@@ -44,12 +45,23 @@ import Button from '@ui/Button/Button'
           text="Классическая кнопка"
         />
         <Button
-          icon="arrow-left"
+          icon="icon-close"
           text="Кнопка с иконкой"
         />
         <Button
-          mod={['fill']}
+          icon="arrow-left"
+          iconPosBefore
+          text="Кнопка с иконкой"
+        />
+        <Button
+          mods={['fill']}
           text="Кнопка с фоном"
+        />
+        <Button
+          mods={['fill']}
+          as='a'
+          href="#"
+          text="Кнопка ссылка"
         />
       </section>
       <section data-ui-section>

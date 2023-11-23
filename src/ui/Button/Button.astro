@@ -1,29 +1,53 @@
 ---
+import type { HTMLTag, Polymorphic } from 'astro/types'
 import './Button.scss'
 import { Sprite } from 'astro-icon'
 
-interface Props {
-  text: string
-  type?: 'submit' | 'button' | 'reset'
-  icon?: string
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag
+  text?: string
   className?: string
-  mod?: ('fill')[]
+  mods?: string[]
+  size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs'
+  icon?: string
+  iconPosBefore?: boolean
   modal?: string
-  props?: any
-}
+}>
 
-const { type = 'button', className, icon, text, mod, modal, props } = Astro.props
+const {
+  as: Tag = 'button',
+  className,
+  text,
+  mods,
+  size,
+  icon,
+  iconPosBefore,
+  modal,
+  ...props
+} = Astro.props
 ---
 
-<button
-  class:list={['button', className, mod?.map((el) => `button--${el}`)]}
-  type={type}
+<Tag
+  class:list={[
+    'button',
+    size ? `button--${size}` : '',
+    mods?.map((el: string) => `button--${el}`),
+    className
+  ]}
   data-open-modal={modal}
   {...props}
 >
-  {icon &&
+  {icon && iconPosBefore && (
     <span class="button__icon">
       <Sprite name={icon} />
-    </span>}
-  <span class='button__text' set:html={text} />
-</button>
+    </span>
+  )}
+
+  <span class="button__text" set:html={text} />
+
+  {icon && !iconPosBefore && (
+    <span class="button__icon">
+      <Sprite name={icon} />
+    </span>
+  )}
+</Tag>
