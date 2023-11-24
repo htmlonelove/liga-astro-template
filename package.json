@@ -17,7 +17,7 @@
     "gen:component": "node ./util/component/gen-component"
   },
   "dependencies": {
-    "astro": "^3.5.5",
+    "astro": "^3.6.0",
     "scroll-lock": "2.1.5",
     "swiper": "9.4.1"
   },
