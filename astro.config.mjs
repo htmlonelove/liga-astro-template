@@ -21,6 +21,8 @@ import { defineConfig, squooshImageService } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://htmlonelove.github.io',
+  base: '/liga-astro-template',
   compressHTML: false,
   output: 'static',
   publicDir: './public',
