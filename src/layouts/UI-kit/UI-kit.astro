@@ -43,7 +43,7 @@ const getItemTemplate = (item, index) => {
 
 const createList = () => {
   sections.forEach((section, index) => {
-    list.insertAdjacentHTML('afterbegin', getItemTemplate(section, index))
+    list.insertAdjacentHTML('beforeend', getItemTemplate(section, index))
   })
 }
 
