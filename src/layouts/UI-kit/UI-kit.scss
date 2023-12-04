@@ -68,10 +68,16 @@
   }
 
   ul {
-    margin-bottom: -34px;
+    position: absolute;
+    right: 0;
+    bottom: calc(100% - 34px);
+
+    list-style: none;
 
     width: 200px;
-    padding: 15px 15px 50px;
+    max-height: 500px;
+    padding: 15px;
+    margin: 0;
 
     background: #f8f5fc;
     border: 2px solid #b8b1b9;
@@ -80,10 +86,14 @@
     transition: opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &::after {
       content: "Навигация";
-      margin-bottom: -37px;
       margin-top: 30px;
       display: block;
       font-size: 14px;
