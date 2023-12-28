@@ -1,11 +1,10 @@
 ---
 import type { HTMLTag, Polymorphic } from 'astro/types'
-import './Title.scss'
 
 type Props<Tag extends HTMLTag> = Polymorphic<{as: Tag}> & {
   text: string
   className?: string
-  mods?: ('white' | 'uppercase')[]
+  mods?: string[]
   size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs'
 };
 

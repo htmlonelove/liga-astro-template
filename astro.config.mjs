@@ -1,4 +1,5 @@
 import { defineConfig, squooshImageService } from 'astro/config'
+import viteSassGlob from 'vite-plugin-sass-glob-import'
 
 // const outputPluginStats = () => ({
 //   name: 'output-plugin-stats',
@@ -21,6 +22,7 @@ import { defineConfig, squooshImageService } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
+  devToolbar: { enabled: false },
   site: 'https://htmlonelove.github.io',
   compressHTML: false,
   output: 'static',
@@ -49,6 +51,8 @@ export default defineConfig({
         },
       },
     },
-    plugins: [],
+    plugins: [
+      viteSassGlob()
+    ],
   },
 })

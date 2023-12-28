@@ -1,12 +1,37 @@
 ---
-import './UI-kit.scss'
 import Layout from '@layouts/root/root'
-import Header from '@components/Header/Header'
-import Footer from '@components/Footer/Footer'
+import Container from '@components/Container/Container';
 ---
 
 <Layout title="UI-Kit">
-  <Header />
+  <header class="ui-header">
+    <Container>
+      <div class="ui-header__logo">
+        <svg
+          xmlns="https://www.w3.org/2000/svg"
+          width="192"
+          fill="none"
+          viewBox="0 0 192 24"
+        >
+          <path
+            fill="#0B0B0B"
+            d="M37.257.387 30.35 12.314l-1.048 2.27.238-2.028-.048-12.17h-5.288v23.47h4.86l6.955-12.17.953-2.124-.19 1.883.047 12.41h5.289L42.069.387h-4.812ZM10.577.387H8.004L0 23.855h5.336L10.434 7.1l5.097 16.756h5.575L13.102.387h-2.525ZM62.888.387H47.881v23.468h5.288V5.747h9.72V.387ZM77.704 23.855h5.574L75.274.387H70.13l-8.004 23.42h5.336l1.334-4.443h7.527l1.382 4.491Zm-7.48-8.837 2.43-7.92 2.382 7.92h-4.812Z"
+          ></path>
+          <path
+            fill="#2C39F2"
+            d="M90.807.387v17.432l8.956 5.94 9.005-5.94V.387H90.807Z"></path>
+          <path
+            fill="#fff"
+            d="M104.956 13.714c.191 0 .382 0 .572-.097v1.932c-.476.145-1.096.29-1.667.29-1.048 0-1.858-.387-2.287-1.16-1.048.773-2.24 1.256-3.812 1.208-1.953 0-3.668-1.16-3.62-3.187.047-2.608 2.525-3.38 4.62-3.38.81 0 1.764.144 2.478.29v-.387c0-1.014-.81-1.739-2.477-1.739-1.43 0-2.716.338-3.716.725v-2.56c.857-.29 2.477-.676 4.05-.627 3.144.048 5.145 1.303 5.097 4.684l-.048 3.283c.096.58.429.725.81.725Zm-8.146-1.16c0 .822.762 1.401 1.81 1.401.953 0 1.81-.241 2.62-.87v-1.738c-.524-.144-1.286-.29-1.953-.29-1.286 0-2.477.387-2.477 1.498Z"
+          ></path>
+          <path
+            fill="#0B0B0B"
+            d="M121.442 8.789h-.524c-.62 0-1.144-.097-1.62-.29a4.533 4.533 0 0 1-1.239-.773c-.333-.29-.572-.724-.762-1.207-.191-.483-.238-.966-.238-1.497 0-.531.095-1.062.285-1.497.191-.435.429-.87.763-1.207.333-.338.762-.58 1.238-.773.477-.193 1.049-.29 1.62-.29h.524V0h.81v1.207h.524c.62 0 1.144.097 1.62.29.477.193.905.483 1.239.773.333.29.572.724.762 1.207.191.483.286.966.286 1.497 0 .53-.095 1.062-.286 1.497-.19.434-.429.869-.762 1.207-.334.338-.715.58-1.239.773-.476.193-1.048.29-1.62.29h-.524v1.207h-.81v-1.16h-.047Zm0-.676V1.835h-.524c-.477 0-.906.097-1.287.241a3.168 3.168 0 0 0-.953.58 2.243 2.243 0 0 0-.619.87 2.55 2.55 0 0 0-.19 1.013v.821c0 .338.047.676.19 1.014.143.338.334.628.619.87.286.24.572.434.953.579.381.145.81.241 1.287.241h.524v.049Zm1.334 0c.476 0 .857-.097 1.238-.242.382-.145.715-.338.953-.58.238-.24.477-.53.62-.869a2.55 2.55 0 0 0 .19-1.014v-.82a2.55 2.55 0 0 0-.19-1.015 2.235 2.235 0 0 0-.62-.869 3.155 3.155 0 0 0-.953-.58 3.536 3.536 0 0 0-1.238-.24h-.524V8.16h.524v-.048ZM129.35 9.61V.337h3.668c.81 0 1.429.241 1.858.676.429.483.619 1.11.619 1.883 0 .821-.19 1.449-.619 1.883-.429.483-1.048.677-1.858.677h-2.858v4.056h-.81v.096Zm.81-4.781h2.858c.524 0 .953-.145 1.239-.435.286-.29.429-.676.429-1.11v-.677c0-.434-.143-.82-.429-1.11-.286-.29-.667-.435-1.239-.435h-2.858V4.83ZM141.356 9.755c-1.191 0-2.096-.387-2.811-1.208-.667-.82-1-1.98-1-3.573 0-1.594.333-2.753 1-3.573.667-.821 1.62-1.208 2.811-1.208 1.191 0 2.097.387 2.764 1.208.667.82 1 1.98 1 3.573 0 1.545-.333 2.752-1 3.573-.667.821-1.573 1.208-2.764 1.208Zm0-.676c.429 0 .858-.097 1.191-.242.382-.145.667-.386.906-.676.238-.29.476-.676.619-1.11.143-.435.19-.918.19-1.498V4.394c0-.53-.047-1.062-.19-1.496-.143-.435-.334-.821-.619-1.111a2.496 2.496 0 0 0-.906-.676 3.082 3.082 0 0 0-1.191-.242 3.09 3.09 0 0 0-1.191.242c-.381.145-.667.386-.953.676-.285.29-.476.676-.619 1.11-.143.435-.191.918-.191 1.497v1.16c0 .53.048 1.062.191 1.496.143.435.334.821.619 1.111.239.29.572.531.953.676a3.09 3.09 0 0 0 1.191.242ZM153.837 5.263h-5.097V9.61h-.81V.338h.81v4.201h5.097V.338h.81v9.271h-.81V5.263ZM160.84 1.062V9.61h-.81V1.062h-3.096V.338h7.003v.724h-3.097ZM166.178 9.61V.337h5.431v.724h-4.621V4.54h4.383v.724h-4.383v3.622h4.621v.724h-5.431ZM180.376 5.263h-5.097V9.61h-.81V.338h.81v4.201h5.097V.338h.81v9.271h-.81V5.263ZM183.281 8.885h.953c.429-.58.715-1.352.953-2.318s.333-2.173.333-3.622V.338h5.241v8.547H192v2.704h-.762V9.61h-7.194v1.98h-.763V8.885Zm6.67 0V1.062h-3.668v1.98c0 1.449-.096 2.656-.286 3.622-.191.966-.477 1.69-.81 2.221v.048h4.764v-.048ZM124.156 23.855l-1.001-2.898h-3.954l-1 2.898h-.81l3.287-9.272h1l3.288 9.272h-.81Zm-3.002-8.5h-.047l-1.715 4.926h3.525l-1.763-4.925ZM127.492 23.13h1.286l.524-1.304-3.478-7.243h.858l2.334 4.877.62 1.352h.047l.524-1.4 1.954-4.829h.81l-3.383 8.45c-.143.339-.286.532-.476.677-.191.096-.429.145-.763.145h-.857v-.725ZM138.258 15.307v8.548h-.81v-8.548h-3.096v-.724h7.003v.724h-3.097ZM146.549 24c-1.144 0-2.049-.386-2.668-1.207-.62-.821-.953-1.98-.953-3.573 0-1.546.333-2.753.953-3.574.619-.82 1.524-1.255 2.668-1.255.762 0 1.381.193 1.905.53.524.339.905.822 1.191 1.45l-.667.386a2.873 2.873 0 0 0-.905-1.207c-.429-.29-.905-.435-1.477-.435-.857 0-1.524.29-2.048.917-.477.628-.715 1.497-.715 2.656V19.8c0 1.159.238 2.028.715 2.608.476.579 1.143.917 2.048.917.62 0 1.144-.145 1.572-.483.429-.29.715-.724.953-1.255l.667.386c-.286.628-.667 1.159-1.191 1.497-.667.338-1.286.531-2.048.531ZM155.409 23.999c-1.191 0-2.096-.387-2.811-1.207-.667-.821-1-1.98-1-3.574 0-1.593.333-2.752 1-3.573.667-.821 1.62-1.207 2.811-1.207 1.191 0 2.096.386 2.763 1.207.667.82 1.001 1.98 1.001 3.573 0 1.545-.334 2.753-1.001 3.573-.667.821-1.572 1.208-2.763 1.208Zm0-.676c.429 0 .858-.097 1.191-.242.381-.145.667-.386.905-.676.239-.29.477-.676.62-1.11.143-.435.19-.918.19-1.497v-1.16c0-.53-.047-1.062-.19-1.496-.143-.435-.334-.821-.62-1.111a2.484 2.484 0 0 0-.905-.676 3.081 3.081 0 0 0-1.191-.242c-.429 0-.858.097-1.191.242-.381.145-.667.386-.953.676-.286.29-.476.676-.619 1.11-.143.435-.191.918-.191 1.498v1.159c0 .53.048 1.062.191 1.497.143.434.333.82.619 1.11.238.29.572.531.953.676.333.145.762.242 1.191.242ZM162.031 23.855v-9.272h3.669c.81 0 1.429.242 1.858.676.429.483.619 1.11.619 1.883 0 .821-.19 1.449-.619 1.884-.429.483-1.048.676-1.858.676h-2.859v4.056h-.81v.097Zm.81-4.781h2.859c.524 0 .953-.145 1.238-.435.286-.29.429-.676.429-1.11V16.9c0-.435-.143-.821-.429-1.11-.285-.29-.667-.435-1.238-.435h-2.859v3.718ZM173.847 24c-1.143 0-2.048-.386-2.668-1.207-.619-.821-.952-1.98-.952-3.573 0-1.546.333-2.753.952-3.574.62-.82 1.525-1.255 2.668-1.255.763 0 1.382.193 1.906.53.524.339.905.822 1.191 1.45l-.667.386a2.873 2.873 0 0 0-.905-1.207c-.429-.29-.905-.435-1.477-.435-.858 0-1.525.29-2.049.917-.476.628-.714 1.497-.714 2.656V19.8c0 1.159.238 2.028.714 2.608.477.579 1.144.917 2.049.917.619 0 1.143-.145 1.572-.483.429-.29.715-.724.953-1.255l.667.386c-.286.628-.667 1.159-1.191 1.497-.667.338-1.334.531-2.049.531Z"
+          ></path>
+        </svg>
+      </div>
+    </Container>
+  </header>
   <main>
     <slot />
     <div class="ui-nav" data-ui-nav>
@@ -14,56 +39,205 @@ import Footer from '@components/Footer/Footer'
       <button class="ui-nav__toggle" data-ui-nav-toggle>+</button>
     </div>
   </main>
-  <Footer />
+  <footer class="ui-footer">
+    <Container>
+      <p class="ui-footer__text">Из Санкт-Петербурга<br />с любовью</p>
+    </Container>
+  </footer>
 </Layout>
+
+<style is:inline>
+  .ui {
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+  .ui__title {
+    margin: 0;
+    margin-bottom: 20px;
+    position: relative;
+    font-size: 28px;
+    line-height: 1.2;
+    text-decoration: underline;
+  }
+  .ui__text {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .ui [data-ui-section] {
+    display: grid;
+    gap: 15px;
+    padding: 30px 30px 35px;
+    border-radius: 16px;
+    background-color: #f8f5fc;
+  }
+  .ui [data-ui-section]:not(:last-child) {
+    margin-bottom: 45px;
+  }
+  .ui__mod-wrap {
+    margin: 0 -15px;
+    padding: 15px;
+    display: grid;
+    gap: 15px;
+    border-radius: 8px;
+  }
+  .ui__mod-wrap--dark {
+    background-color: #2e2f37;
+    color: #ffffff;
+  }
+  .ui-title {
+    margin-bottom: 30px;
+    font-size: 45px;
+    line-height: 1.2;
+    color: #58485e;
+  }
+  .ui-nav {
+    position: fixed;
+    z-index: 100;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .ui-nav.is-open ul {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .ui-nav__toggle {
+    position: relative;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    background-color: #f8f5fc;
+    border: 2px solid #58485e;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    color: #58485e;
+    opacity: 0.4;
+    transition:
+      opacity 0.3s ease,
+      border-color 0.3s ease;
+  }
+  .ui-nav__toggle:hover {
+    opacity: 1;
+    border-color: #b8b1b9;
+  }
+  .ui-nav ul {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% - 34px);
+    list-style: none;
+    max-height: 500px;
+    padding: 15px;
+    margin: 0;
+    background-color: #f8f5fc;
+    border: 2px solid #b8b1b9;
+    border-radius: 18px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+  }
+  .ui-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+  .ui-nav ul::after {
+    content: "Навигация";
+    margin-bottom: -37px;
+    margin-top: 30px;
+    display: block;
+    font-size: 14px;
+    color: #58485e;
+    opacity: 0.6;
+  }
+  .ui-nav ul li:not(:last-child) {
+    margin-bottom: 13px;
+  }
+  .ui-nav ul a {
+    color: #58485e;
+    font-size: 18px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .ui-nav ul a:hover {
+    opacity: 0.7;
+  }
+  .ui-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+  }
+  .ui-header__logo svg {
+    width: 192px;
+  }
+  .ui-footer {
+    padding: 12px 0 20px;
+    width: 100%;
+  }
+  .ui-footer__text {
+    text-align: right;
+    font-size: 16px;
+    line-height: 19px;
+    opacity: 0.6;
+  }
+  .ui-background-gray {
+    background-color: #808080;
+  }
+</style>
 
 <!-- лейаут содержит в себе стили для секций страницы ui-kit, навигацию -->
 
 <script is:inline>
-const getAnchorId = (index) => `section-${index}`
-const sections = [...document.querySelectorAll('[data-ui-section]')]
-const nav = document.querySelector('[data-ui-nav]')
-const toggle = document.querySelector('[data-ui-nav-toggle]')
-let list = null;
+  const getAnchorId = (index) => `section-${index}`;
+  const sections = [...document.querySelectorAll("[data-ui-section]")];
+  const nav = document.querySelector("[data-ui-nav]");
+  const toggle = document.querySelector("[data-ui-nav-toggle]");
+  let list = null;
 
-const createAnchorsId = () => {
-  sections.forEach((section, index) => {
-    section.id = getAnchorId(index)
-  })
-}
+  const createAnchorsId = () => {
+    sections.forEach((section, index) => {
+      section.id = getAnchorId(index);
+    });
+  };
 
-const getItemTemplate = (item, index) => {
-  const title = item.querySelector('[data-ui-title]')
-  return (`
+  const getItemTemplate = (item, index) => {
+    const title = item.querySelector("[data-ui-title]");
+    return `
     <li>
       <a href='#${getAnchorId(index)}'>${title.innerHTML}</a>
     </li>
-  `)
-}
+  `;
+  };
 
-const createList = () => {
-  sections.forEach((section, index) => {
-    list.insertAdjacentHTML('beforeend', getItemTemplate(section, index))
-  })
-}
+  const createList = () => {
+    sections.forEach((section, index) => {
+      list.insertAdjacentHTML("beforeend", getItemTemplate(section, index));
+    });
+  };
 
-const initPageNavigation = () => {
-  if (!sections.length || !nav || !toggle) return
-  list = nav.querySelector('ul')
-  if (!list) return
+  const initPageNavigation = () => {
+    if (!sections.length || !nav || !toggle) return;
+    list = nav.querySelector("ul");
+    if (!list) return;
 
-  createList()
-  createAnchorsId()
-  toggle.addEventListener('click', () => {
-    if (list.classList.contains('is-open')) {
-      list.classList.remove('is-open')
-      toggle.innerHTML = '+'
-    } else {
-      list.classList.add('is-open')
-      toggle.innerHTML = '-'
-    }
-  })
-}
+    createList();
+    createAnchorsId();
+    toggle.addEventListener("click", () => {
+      if (nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        toggle.innerHTML = "+";
+      } else {
+        nav.classList.add("is-open");
+        toggle.innerHTML = "-";
+      }
+    });
+  };
 
-initPageNavigation()
+  initPageNavigation();
 </script>

@@ -1,16 +1,23 @@
 // Vendors
 // ---------------------------------------
-@import "@styles/vendors/normalize.scss";
-@import "@styles/vendors/swiper-bundle-9.4.1.scss";
+@import "./vendors/normalize";
+@import "./vendors/swiper-bundle-9.4.1";
 
 // Globals
 // ---------------------------------------
-@import "@styles/global/variables.scss";
-@import "@styles/global/mixins.scss";
-@import "@styles/global/fonts.scss";
-@import "@styles/global/global.scss";
-@import "@styles/global/utils.scss";
+@import "./global/variables";
+@import "./global/mixins";
+@import "./global/functions";
+@import "./global/fonts";
+@import "./global/global";
+@import "./global/utils";
+
+// UI Components
+// ---------------------------------------
+@import "../ui/**/*";
+
 
 // Components
 // ---------------------------------------
-// @import "@styles/components/...";
+@import "../components/**/*"; // компоненты из astro
+@import "./components/*";
