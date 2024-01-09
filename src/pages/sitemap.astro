@@ -2,7 +2,7 @@
 import Layout from '@layouts/root/root'
 import Container from '@components/Container/Container'
 import Title from '@ui/Title/Title'
-import Icon from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 
 const pageList = [{
   name: 'UI-kit',
@@ -24,7 +24,7 @@ const pageList = [{
         </div>
         <Title
           text="Список страниц"
-          size='m'
+          size="sm"
         />
         <ol>
           {pageList.map((item) => (

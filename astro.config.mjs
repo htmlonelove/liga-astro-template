@@ -1,5 +1,6 @@
 import { defineConfig, squooshImageService } from 'astro/config'
 import viteSassGlob from 'vite-plugin-sass-glob-import'
+import icon from 'astro-icon'
 
 // const outputPluginStats = () => ({
 //   name: 'output-plugin-stats',
@@ -36,6 +37,15 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
+  integrations: [
+    icon({
+      svgoOptions: {
+        plugins: [
+          'preset-default'
+        ],
+      },
+    })
+  ],
   vite: {
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
