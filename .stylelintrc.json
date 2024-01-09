@@ -1,7 +1,10 @@
 {
+  "plugins": ["stylelint-scss"],
   "extends": "stylelint-config-htmlacademy",
   "rules": {
     "selector-class-pattern": null,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
     "max-nesting-depth": 4
   }
 }
