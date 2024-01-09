@@ -1,6 +1,4 @@
 :root {
-  --ff-Rubik: "Rubik", sans-serif;
-
   // colors
   // Если нет палитры от дизайнера, то для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
   --color-white: #ffffff;
@@ -17,6 +15,9 @@
   --pd-md: 48px;
   --pd-sm: 20px;
 }
+
+$ff-rubik: "Rubik", sans-serif;
+$fz-default: 16px;
 
 $vp-1920: 1920px;
 $vp-1024: 1024px;

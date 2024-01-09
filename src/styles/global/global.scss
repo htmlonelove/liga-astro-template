@@ -9,14 +9,15 @@ body {
   margin: 0;
   padding: 0;
   min-height: calc(100 * var(--vh, 1vh));
-  font-family: var(--ff-Rubik);
 }
 
 html {
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
-  // font-family: $ff-suisse;
+  font-family: $ff-rubik;
+  line-height: 1.5;
+  font-size: $fz-default;
+  color: var(--color-black);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
