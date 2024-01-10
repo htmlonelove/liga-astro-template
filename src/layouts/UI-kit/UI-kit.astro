@@ -191,53 +191,51 @@ import Container from '@components/Container/Container';
   }
 </style>
 
-<!-- лейаут содержит в себе стили для секций страницы ui-kit, навигацию -->
-
 <script is:inline>
-  const getAnchorId = (index) => `section-${index}`;
-  const sections = [...document.querySelectorAll("[data-ui-section]")];
-  const nav = document.querySelector("[data-ui-nav]");
-  const toggle = document.querySelector("[data-ui-nav-toggle]");
-  let list = null;
+  const getAnchorId = (index) => `section-${index}`
+  const sections = [...document.querySelectorAll('[data-ui-section]')]
+  const nav = document.querySelector('[data-ui-nav]')
+  const toggle = document.querySelector('[data-ui-nav-toggle]')
+  let list = null
 
   const createAnchorsId = () => {
     sections.forEach((section, index) => {
-      section.id = getAnchorId(index);
-    });
-  };
+      section.id = getAnchorId(index)
+    })
+  }
 
   const getItemTemplate = (item, index) => {
-    const title = item.querySelector("[data-ui-title]");
+    const title = item.querySelector('[data-ui-title]')
     return `
-    <li>
-      <a href='#${getAnchorId(index)}'>${title.innerHTML}</a>
+        <li>
+          <a href='#${getAnchorId(index)}'>${title.innerHTML}</a>
     </li>
-  `;
-  };
+  `
+  }
 
   const createList = () => {
     sections.forEach((section, index) => {
-      list.insertAdjacentHTML("beforeend", getItemTemplate(section, index));
-    });
-  };
+      list.insertAdjacentHTML('beforeend', getItemTemplate(section, index))
+    })
+  }
 
   const initPageNavigation = () => {
-    if (!sections.length || !nav || !toggle) return;
-    list = nav.querySelector("ul");
-    if (!list) return;
+    if (!sections.length || !nav || !toggle) return
+    list = nav.querySelector('ul')
+    if (!list) return
 
-    createList();
-    createAnchorsId();
-    toggle.addEventListener("click", () => {
-      if (nav.classList.contains("is-open")) {
-        nav.classList.remove("is-open");
-        toggle.innerHTML = "+";
+    createList()
+    createAnchorsId()
+    toggle.addEventListener('click', () => {
+      if (nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open')
+        toggle.innerHTML = '+'
       } else {
-        nav.classList.add("is-open");
-        toggle.innerHTML = "-";
+        nav.classList.add('is-open')
+        toggle.innerHTML = '-'
       }
-    });
-  };
+    })
+  }
 
-  initPageNavigation();
+  initPageNavigation()
 </script>
