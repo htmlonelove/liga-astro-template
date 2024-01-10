@@ -2,20 +2,34 @@
 import { Icon } from 'astro-icon/components'
 
 interface Props {
-  className?: string
-  mod?: 'preload'
-  name: string
+  className?: string;
+  mods?: string[];
+  name: string;
 }
 
-const { mod, className, name } = Astro.props;
+const { mods, className, name } = Astro.props;
 ---
-<div class:list={['modal', className, { [`modal--${mod}`]: mod }]} data-modal=`${name}`>
+
+<div
+  class:list={[
+    'modal',
+    'modal--preload',
+    mods?.map((el) => `modal--${el}`),
+    className
+  ]}
+  data-modal=`${name}`
+>
   <div class="modal__wrapper">
     <div class="modal__overlay" data-close-modal></div>
     <div class="modal__content">
       <slot />
-      <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
-        <Icon name="icon-close" />
+      <button
+        class="modal__close-btn"
+        type="button"
+        aria-label="Закрыть попап"
+        data-close-modal
+      >
+        <Icon size={16} name="icon-close" />
       </button>
     </div>
   </div>
