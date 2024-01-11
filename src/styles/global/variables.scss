@@ -16,6 +16,10 @@
   --pd-sm: 20px;
 }
 
+// Высота без учета bar в android, ios
+// Для устранения бага в андроид @see https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+$height-100vh: calc(100 * var(--vh, 1vh));
+
 $ff-rubik: "Rubik", sans-serif;
 $fz-default: 16px;
 

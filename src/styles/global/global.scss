@@ -8,15 +8,15 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-height: calc(100 * var(--vh, 1vh));
+  min-height: $height-100vh;
 }
 
 html {
   font-style: normal;
   font-weight: 400;
   font-family: $ff-rubik;
-  line-height: 1.5;
   font-size: $fz-default;
+  line-height: 1.5;
   color: var(--color-black);
 
   -webkit-font-smoothing: antialiased;
