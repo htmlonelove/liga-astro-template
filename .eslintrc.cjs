@@ -25,6 +25,7 @@ module.exports = {
   },
   ignorePatterns: ['**/*/*.scss', '**/*/*.md'],
   rules: {
+    'jsx-quotes': [2, 'prefer-double'],
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
     // ECMAScript 6
