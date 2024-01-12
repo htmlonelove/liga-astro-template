@@ -9,11 +9,15 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev --open --host",
+    "start": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint src/**/* --fix & stylelint src/**/*.scss --fix & editorconfig-checker",
+    "lint:prettier": "prettier -w **/*.{js,jsx,ts,tsx,md,mdx,astro} --config .prettierrc.cjs",
+    "lint:eslint": "eslint src/**/*.{js,ts,jsx,tsx,astro} --fix",
+    "lint:stylelint": "stylelint src/**/*.scss",
+    "lint:editorconfig": "editorconfig-checker",
+    "lint": "npm run lint:prettier & lint:eslint & lint:stylelint & lint:editorconfig",
     "gen:component": "node ./util/component/gen-component"
   },
   "dependencies": {
@@ -30,6 +34,8 @@
     "eslint": "^8.50.0",
     "eslint-plugin-astro": "^0.29.0",
     "postcss": "^8.4.30",
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "^0.12.3",
     "sass": "^1.67.0",
     "stylelint": "^16.1.0",
     "stylelint-config-htmlacademy": "^4.0.1",

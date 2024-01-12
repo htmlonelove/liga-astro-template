@@ -1,33 +1,36 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   env: {
     browser: true,
     node: true,
-    es2021: true,
+    es2021: true
   },
   extends: ['plugin:astro/recommended'],
+  parser: '@typescript-eslint/parser',
   globals: {
     Fragment: 'readonly',
-    ImageMetadata: 'readonly',
+    ImageMetadata: 'readonly'
   },
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    ecmaVersion: 'latest',
+    sourceType: 'module'
+  },
+  ignorePatterns: ['**/*/*.scss', '**/*/*.md'],
   overrides: [
     {
       files: '*.astro',
       parser: 'astro-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
-      },
+        extraFileExtensions: ['.astro']
+      }
     }
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  ignorePatterns: ['**/*/*.scss', '**/*/*.md'],
   rules: {
     'jsx-quotes': [2, 'prefer-double'],
     'semi': ['error', 'never'],
-    'quotes': ['error', 'single'],
+    'quotes': ['error', 'single', { avoidEscape: true }],
     // ECMAScript 6
     // http://eslint.org/docs/rules/#ecmascript-6
     // ------------------------------------------
@@ -40,7 +43,7 @@ module.exports = {
         requireParamDescription: false,
         requireReturnDescription: false,
         requireReturn: false,
-        prefer: { returns: 'return' },
+        prefer: { returns: 'return' }
       }
     ],
 
@@ -111,7 +114,7 @@ module.exports = {
       {
         args: 'after-used',
         argsIgnorePattern: '^_',
-        varsIgnorePattern: 'Props',
+        varsIgnorePattern: 'Props'
       }
     ], // check that all args are used¬
     'no-delete-var': 'error', // eslint:recommended
@@ -137,10 +140,10 @@ module.exports = {
         SwitchCase: 1,
         // continuation indent
         VariableDeclarator: 1, // indent is multiplier * indent = 1 * 2
-        MemberExpression: 2, // indent is multiplier * indent = 2 * 2
-        FunctionDeclaration: { parameters: 2 },
-        FunctionExpression: { parameters: 2 },
-        CallExpression: { arguments: 2 },
+        MemberExpression: 1, // indent is multiplier * indent = 2 * 2
+        FunctionDeclaration: { parameters: 1 },
+        FunctionExpression: { parameters: 1 },
+        CallExpression: { arguments: 1 }
       }
     ],
     'block-spacing': ['error', 'always'],
@@ -167,7 +170,7 @@ module.exports = {
       {
         var: 'never',
         let: 'never',
-        const: 'never',
+        const: 'never'
       }
     ],
     'padded-blocks': ['off', 'never'],
@@ -207,11 +210,11 @@ module.exports = {
       'error',
       {
         arrays: 'never',
-        objects: 'always-multiline',
+        objects: 'only-multiline',
         imports: 'never',
         exports: 'never',
-        functions: 'never',
+        functions: 'never'
       }
-    ],
-  },
+    ]
+  }
 }
