@@ -13,6 +13,12 @@ const src = `./${folder}/${name}`
 ---
 
 <picture>
-  <source srcset=`${src}.webp, ${src}@2x.webp 2x` type="image/webp">
-  <img src=`${src}.${type}` srcset=`${src}@2x.${type} 2x` alt={alt} width={width} height={height}>
+  <source srcset=`${src}.webp, ${src}@2x.webp 2x` type="image/webp" />
+  <img
+    src=`${src}.${type}`
+    srcset=`${src}@2x.${type} 2x`
+    alt={alt}
+    width={width}
+    height={height}
+  />
 </picture>

@@ -2,16 +2,17 @@
 import { Icon } from 'astro-icon/components'
 import type { HTMLTag, Polymorphic } from 'astro/types'
 
-type Props<Tag extends HTMLTag> = Polymorphic<{as: Tag} & {
-    text?: string;
-    className?: string;
-    mods?: string[];
-    size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-    icon?: string;
-    iconPosBefore?: boolean;
-    modal?: string;
+type Props<Tag extends HTMLTag> = Polymorphic<
+  { as: Tag } & {
+    text?: string
+    className?: string
+    mods?: string[]
+    size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs'
+    icon?: string
+    iconPosBefore?: boolean
+    modal?: string
   }
->;
+>
 
 const {
   as: Tag = 'button',
@@ -23,7 +24,7 @@ const {
   iconPosBefore,
   modal,
   ...props
-} = Astro.props;
+} = Astro.props
 ---
 
 <Tag

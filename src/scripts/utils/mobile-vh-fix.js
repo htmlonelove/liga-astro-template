@@ -1,7 +1,9 @@
 import { iosChecker } from './ios-checker'
 
 const mobileVhFix = () => {
-  const isMobile = /Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  const isMobile = /Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
   const isIE = !!window.MSInputMethodContext && !!document.documentMode
 
   if (!isIE && (isMobile || iosChecker())) {

@@ -11,5 +11,4 @@ const { } = Astro.props
 
 `
 
-export const scssTemplate = () =>
-  ''
+export const scssTemplate = () => ''

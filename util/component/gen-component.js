@@ -17,7 +17,7 @@ let outputFolder = null
 const outputFolders = {
   component: '/components',
   ui: '/ui',
-  layout: '/layouts',
+  layout: '/layouts'
 }
 
 const defineNames = new Promise((next, reject) => {
@@ -32,11 +32,14 @@ const defineNames = new Promise((next, reject) => {
       outputFolder = ROOT + outputFolders[folder]
       next()
     } else {
-      reject(`❌ ':${folder}' not allowed;\n👉 allowed options -${Object.keys(outputFolders).map((el) => ` :${el}`)}`)
+      reject(
+        `❌ ':${folder}' not allowed;\n👉 allowed options -${Object.keys(
+          outputFolders
+        ).map((el) => ` :${el}`)}`
+      )
     }
   }
 })
-
 
 const checkComponentName = new Promise((next, reject) => {
   if (resolve(__dirname, FILENAME) == componentName) {
@@ -44,7 +47,8 @@ const checkComponentName = new Promise((next, reject) => {
   }
 
   componentName =
-    componentName[0].toUpperCase() + componentName.slice(1, componentName.length)
+    componentName[0].toUpperCase() +
+    componentName.slice(1, componentName.length)
   next()
 })
 
@@ -56,27 +60,31 @@ const checkOverride = new Promise((next, reject) => {
   next()
 })
 
-const createFolder = () => new Promise((next) => {
-  mkdirSync(`${outputFolder}/${componentName}`, { recursive: true })
+const createFolder = () =>
+  new Promise((next) => {
+    mkdirSync(`${outputFolder}/${componentName}`, { recursive: true })
 
-  next()
-})
+    next()
+  })
 
-const createComponent = () => new Promise((next) => {
-  writeFileSync(
+const createComponent = () =>
+  new Promise((next) => {
+    writeFileSync(
       `${outputFolder}/${componentName}/${componentName}.astro`,
       astroTemplate(componentName)
-  )
-  writeFileSync(
+    )
+    writeFileSync(
       `${outputFolder}/${componentName}/${componentName}.scss`,
       scssTemplate()
-  )
+    )
 
-  next()
-})
+    next()
+  })
 
 Promise.all([defineNames, checkComponentName, checkOverride])
-    .then(() => console.info('✨ Checks completed!\n💫 Generating component...'))
-    .then(() => Promise.all([createFolder(), createComponent()]))
-    .then(() => console.info(`✅ Created: '${componentName}' in '${outputFolder}'`))
-    .catch((err) => console.error(err))
+  .then(() => console.info('✨ Checks completed!\n💫 Generating component...'))
+  .then(() => Promise.all([createFolder(), createComponent()]))
+  .then(() =>
+    console.info(`✅ Created: '${componentName}' in '${outputFolder}'`)
+  )
+  .catch((err) => console.error(err))

@@ -70,8 +70,12 @@ export class Modals {
       typeof this._settings[settingKey].eventTimeout === 'number'
         ? this._settings[settingKey].eventTimeout
         : this._settings[this._settingKey].eventTimeout
-    this._openCallback = this._settings[settingKey].openCallback || this._settings[this._settingKey].openCallback
-    this._closeCallback = this._settings[settingKey].closeCallback || this._settings[this._settingKey].closeCallback
+    this._openCallback =
+      this._settings[settingKey].openCallback ||
+      this._settings[this._settingKey].openCallback
+    this._closeCallback =
+      this._settings[settingKey].closeCallback ||
+      this._settings[this._settingKey].closeCallback
   }
 
   _documentClickHandler(evt) {
@@ -130,7 +134,10 @@ export class Modals {
     if (this._stopPlay) {
       modal.querySelectorAll('video, audio').forEach((el) => el.pause())
       modal.querySelectorAll('[data-iframe]').forEach((el) => {
-        el.querySelector('iframe').contentWindow.postMessage('{"event": "command", "func": "pauseVideo", "args": ""}', '*')
+        el.querySelector('iframe').contentWindow.postMessage(
+          '{"event": "command", "func": "pauseVideo", "args": ""}',
+          '*'
+        )
       })
     }
   }
@@ -139,7 +146,10 @@ export class Modals {
     modal.querySelectorAll('[data-iframe]').forEach((el) => {
       const autoPlay = el.closest('[data-auto-play]')
       if (autoPlay) {
-        el.querySelector('iframe').contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
+        el.querySelector('iframe').contentWindow.postMessage(
+          '{"event":"command","func":"playVideo","args":""}',
+          '*'
+        )
       }
     })
   }
@@ -165,7 +175,10 @@ export class Modals {
     this._setSettings(modalName)
     modal.classList.add('is-active')
 
-    if (modalName !== this._stackModalElements[this._stackModalElements.length - 1]) {
+    if (
+      modalName !==
+      this._stackModalElements[this._stackModalElements.length - 1]
+    ) {
       this._stackModalElements.push(modalName)
     }
 
@@ -197,8 +210,10 @@ export class Modals {
       return
     }
 
-    const activeModal = this._stackModalElements[this._stackModalElements.length - 1]
-    const prevModal = this._stackModalElements[this._stackModalElements.length - 2]
+    const activeModal =
+      this._stackModalElements[this._stackModalElements.length - 1]
+    const prevModal =
+      this._stackModalElements[this._stackModalElements.length - 2]
 
     if (this._stackModalElements.length === 1) {
       this._stackModalElements = []

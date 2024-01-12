@@ -21,7 +21,6 @@
 //   }
 // }
 
-
 import gulp from 'gulp'
 import webp from 'gulp-webp'
 import del from 'del'
@@ -32,40 +31,51 @@ import mozJpeg from 'imagemin-mozjpeg'
 const createWebp = () => {
   const root = ''
   return gulp
-      .src('public/**/*.{png,jpg}')
-      .pipe(webp({ quality: 90 }))
-      .pipe(gulp.dest(`dist/${root}`))
+    .src('public/**/*.{png,jpg}')
+    .pipe(webp({ quality: 90 }))
+    .pipe(gulp.dest(`dist/${root}`))
 }
 
 const cleanImages = () => del('dist/images/')
-const copyImages = () => gulp.src('public/images/**/*.{png,jpg,jpeg,webp}', { base: 'public' }).pipe(gulp.dest('dist/'))
+const copyImages = () =>
+  gulp
+    .src('public/images/**/*.{png,jpg,jpeg,webp}', { base: 'public' })
+    .pipe(gulp.dest('dist/'))
 
 const optimizeJpg = () =>
   gulp
-      .src('public/images/**/*.{jpg,jpeg}', { base: 'public' })
-      .pipe(imagemin([mozJpeg({ quality: 55, progressive: true })]))
-      .pipe(gulp.dest('dist/'))
+    .src('public/images/**/*.{jpg,jpeg}', { base: 'public' })
+    .pipe(imagemin([mozJpeg({ quality: 55, progressive: true })]))
+    .pipe(gulp.dest('dist/'))
 
 const optimizePng = () =>
   gulp
-      .src('public/images/**/*.png', { base: 'public' })
-      .pipe(
-          imagemin([
-            pngQuant({
-              speed: 1,
-              strip: true,
-              dithering: 1,
-              quality: [0.5, 0.6],
-            })]))
-      .pipe(gulp.dest('dist/'))
+    .src('public/images/**/*.png', { base: 'public' })
+    .pipe(
+      imagemin([
+        pngQuant({
+          speed: 1,
+          strip: true,
+          dithering: 1,
+          quality: [0.5, 0.6]
+        })
+      ])
+    )
+    .pipe(gulp.dest('dist/'))
 
 const createBuildWebp = () => {
   return gulp
-      .src('public/images/**/*.{png,jpg}')
-      .pipe(webp({ quality: 50 }))
-      .pipe(gulp.dest('dist/images/'))
+    .src('public/images/**/*.{png,jpg}')
+    .pipe(webp({ quality: 50 }))
+    .pipe(gulp.dest('dist/images/'))
 }
 
-const optimizeImages = gulp.series(cleanImages, copyImages, optimizePng, optimizeJpg, createBuildWebp)
+const optimizeImages = gulp.series(
+  cleanImages,
+  copyImages,
+  optimizePng,
+  optimizeJpg,
+  createBuildWebp
+)
 
 export { createWebp, optimizeImages }
