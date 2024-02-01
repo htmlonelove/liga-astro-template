@@ -143,7 +143,8 @@ module.exports = {
         MemberExpression: 1, // indent is multiplier * indent = 2 * 2
         FunctionDeclaration: { parameters: 1 },
         FunctionExpression: { parameters: 1 },
-        CallExpression: { arguments: 1 }
+        CallExpression: { arguments: 1 },
+        offsetTernaryExpressions: true
       }
     ],
     'block-spacing': ['error', 'always'],
