@@ -1,6 +1,8 @@
 import { FocusLock } from 'src/scripts/utils/focus-lock'
 import scrollLock from 'scroll-lock'
 
+// TODO: add types
+
 export class Modals {
   constructor(settings = {}) {
     this._scrollLock = scrollLock

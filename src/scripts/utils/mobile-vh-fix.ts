@@ -4,9 +4,9 @@ const mobileVhFix = () => {
   const isMobile = /Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
-  const isIE = !!window.MSInputMethodContext && !!document.documentMode
+  const isIOs = iosChecker()
 
-  if (!isIE && (isMobile || iosChecker())) {
+  if (isMobile || isIOs) {
     const updateViewportHeight = () => {
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)

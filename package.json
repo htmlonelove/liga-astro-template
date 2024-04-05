@@ -10,14 +10,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev --host",
-    "build": "astro build",
+    "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "prepare": "husky",
     "lint:prettier": "prettier -w **/*.{js,jsx,ts,tsx,md,mdx,astro} --config .prettierrc.cjs",
     "lint:eslint": "eslint src/**/*.{js,ts,jsx,tsx,astro} --fix",
     "lint:stylelint": "stylelint src/**/*.scss",
     "lint": "npm run lint:prettier & npm run lint:eslint & npm run lint:stylelint",
-    "gen:component": "node ./util/component/gen-component"
+    "gen:component": "node ./util/component/gen-component.mjs"
   },
   "dependencies": {
     "astro": "^4.1.1",
@@ -25,12 +26,18 @@
     "swiper": "9.4.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/ts-plugin": "^1.6.1",
     "@types/scroll-lock": "^2.1.3",
     "@typescript-eslint/parser": "^6.7.2",
     "astro-icon": "^1.0.2",
     "autoprefixer": "^10.4.16",
+    "chalk": "^5.3.0",
     "eslint": "^8.50.0",
     "eslint-plugin-astro": "^0.29.0",
+    "husky": "^9.0.11",
+    "inquirer": "^9.2.17",
+    "inquirer-file-tree-selection-prompt": "^2.0.5",
     "postcss": "^8.4.30",
     "prettier": "^3.1.1",
     "prettier-plugin-astro": "^0.12.3",
@@ -38,6 +45,8 @@
     "stylelint": "^16.1.0",
     "stylelint-config-htmlacademy": "^4.0.1",
     "stylelint-scss": "^6.0.0",
+    "typescript": "^5.4.3",
+    "uppercamelcase": "^3.0.0",
     "vite-plugin-sass-glob-import": "3.0.2"
   }
 }

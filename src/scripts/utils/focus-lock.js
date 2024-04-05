@@ -1,3 +1,5 @@
+// TODO: add types
+
 const SELECTORS = [
   'a[href]',
   'area[href]',

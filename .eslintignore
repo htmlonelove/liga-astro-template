@@ -1,4 +1,5 @@
 dist/
 src/icons
 src/images
-src/env.d.ts
+util/
+env.d.ts

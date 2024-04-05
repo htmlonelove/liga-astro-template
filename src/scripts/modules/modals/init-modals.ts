@@ -1,6 +1,7 @@
 import { Modals } from './modals'
+import type { ModalsType } from '@types'
 
-let modals
+let modals: ModalsType | undefined
 
 const settings = {
   'default': {
@@ -32,7 +33,6 @@ const initModals = () => {
   }
 
   modals = new Modals(settings)
-  // Используйте в разработке экспортируемую переменную modals, window сделан для бэкэнда
   window.modals = modals
 }
 

@@ -6,7 +6,19 @@
       "@components/*": ["src/components/*.astro"],
       "@layouts/*": ["src/layouts/*.astro"],
       "@ui/*": ["src/ui/*.astro"],
-      "@images/*": ["src/images/*"]
-    }
-  }
+      "@images/*": ["src/images/*"],
+      "@types": ["types"]
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ]
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "public",
+    "util"
+  ]
 }
