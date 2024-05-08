@@ -31,19 +31,17 @@ export default defineConfig({
   build: {
     format: 'file', // вытаскивает вложенные страницы в корень src/pages/subpage/subpage.html => dist/subpage.html
     assets: 'assets', // собирает скрипты и стили в папку dist/assets
-    assetsPrefix: '.', // добавляет `.` в пути скриптов и стилей
+    assetsPrefix: '.' // добавляет `.` в пути скриптов и стилей
     // inlineStylesheets: 'never', // запрещает инлайн стилей
   },
   image: {
-    service: squooshImageService(),
+    service: squooshImageService()
   },
   integrations: [
     icon({
       svgoOptions: {
-        plugins: [
-          'preset-default'
-        ],
-      },
+        plugins: ['preset-default']
+      }
     })
   ],
   vite: {
@@ -57,12 +55,10 @@ export default defineConfig({
             return assetInfo.name === 'style.css'
               ? `${assetInfo.name}` // задается имя и папка (корень) для css
               : `assets/${assetInfo.name}` // задается имя и папка картинкам
-          },
-        },
-      },
+          }
+        }
+      }
     },
-    plugins: [
-      viteSassGlob()
-    ],
-  },
+    plugins: [viteSassGlob()]
+  }
 })

@@ -7,6 +7,12 @@ module.exports = {
       options: {
         parser: 'astro'
       }
+    },
+    {
+      files: ['**/*.scss'],
+      options: {
+        singleQuote: false
+      }
     }
   ],
   singleQuote: true,
@@ -17,7 +23,6 @@ module.exports = {
   bracketSpacing: true,
   arrowParens: 'always',
   singleAttributePerLine: false,
-  bracketSameLine: false,
   bracketSameLine: false,
   printWidth: 80
 }

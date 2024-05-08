@@ -10,16 +10,18 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev --host",
+    "check": "astro check",
+    "check:ts": "tsc --noEmit",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky",
     "lint:prettier": "prettier -w **/*.{js,jsx,ts,tsx,md,mdx,astro} --config .prettierrc.cjs",
     "lint:eslint": "eslint src/**/*.{js,ts,jsx,tsx,astro} --fix",
-    "lint:stylelint": "stylelint src/**/*.scss",
+    "lint:stylelint": "stylelint **/*.scss",
     "lint": "npm run lint:prettier & npm run lint:eslint & npm run lint:stylelint",
     "gen:component": "node ./util/component/gen-component.mjs",
-    "robots": "node ./util/create-robots-file.mjs"
+    "gen:robots": "node ./util/create-robots-file.mjs"
   },
   "dependencies": {
     "astro": "^4.1.1",
