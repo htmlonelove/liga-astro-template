@@ -18,7 +18,8 @@
     "lint:eslint": "eslint src/**/*.{js,ts,jsx,tsx,astro} --fix",
     "lint:stylelint": "stylelint src/**/*.scss",
     "lint": "npm run lint:prettier & npm run lint:eslint & npm run lint:stylelint",
-    "gen:component": "node ./util/component/gen-component.mjs"
+    "gen:component": "node ./util/component/gen-component.mjs",
+    "robots": "node ./util/create-robots-file.mjs"
   },
   "dependencies": {
     "astro": "^4.1.1",
