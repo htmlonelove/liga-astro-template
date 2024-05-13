@@ -133,8 +133,7 @@ import myImagePng from "@images/my-image-png.png";
 
 Можно использовать компонент `ui/Picture/Picture.astro`
 
-```
-Astro
+```Astro
 ---
 import Picture from '@ui/Picture/Picture'
 ---
@@ -150,12 +149,12 @@ import Picture from '@ui/Picture/Picture'
 
 Также добавлена возможность добавить адаптивное изображение для мобильной версии и задать брейкпоинт:
 
-```
-Props {
-  ...
+```ts
+interface Props {
+  ///
   mobileName?: string
   mobileBreakpoint?: number
-  ...
+  ///
 }
 ```
 
