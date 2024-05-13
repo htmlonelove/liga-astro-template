@@ -1,22 +1,51 @@
 ---
-interface Props {
+export interface Props {
+  path?: string
   name: string
-  type: 'jpg' | 'png' | 'jpeg'
+  format: 'jpg' | 'png' | 'jpeg'
+  mobileName?: string
+  mobileBreakpoint?: number
   alt: string
   width: number
   height: number
-  folder?: string
 }
 
-const { name, type, alt, width, height, folder = 'images' } = Astro.props
-const src = `./${folder}/${name}`
+const {
+  path = './images',
+  format,
+  alt,
+  width,
+  height,
+  name,
+  mobileName,
+  mobileBreakpoint = 1023
+} = Astro.props
+
+const src = `${path}/${name}`
+const srcMobile = `${path}/${mobileName}`
 ---
 
 <picture>
-  <source srcset=`${src}.webp, ${src}@2x.webp 2x` type="image/webp" />
+  {
+    mobileName && (
+      <>
+        <source
+          srcset={`${srcMobile}.webp, ${srcMobile}@2x.webp 2x`}
+          type="image/webp"
+          media={`(max-width: ${mobileBreakpoint}px)`}
+        />
+        <source
+          srcset={`${srcMobile}@1x.${format}, ${srcMobile}@2x.${format} 2x`}
+          type={`image/${format}`}
+          media={`(max-width: ${mobileBreakpoint}px)`}
+        />
+      </>
+    )
+  }
+  <source srcset=`${src}@1x.webp, ${src}@2x.webp 2x` type="image/webp" />
   <img
-    src=`${src}.${type}`
-    srcset=`${src}@2x.${type} 2x`
+    src=`${src}@1x.${format}`
+    srcset=`${src}@2x.${format} 2x`
     alt={alt}
     width={width}
     height={height}

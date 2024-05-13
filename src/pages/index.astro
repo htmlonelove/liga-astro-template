@@ -1,9 +1,10 @@
 ---
 import Container from '@components/Container/Container'
 import Modal from '@components/Modal/Modal'
-import myImage from '@images/mountain.jpg'
+import myImage from '../assets/images/mountain.jpg'
 import MainLayout from '@layouts/Main/Main'
-import { Picture } from 'astro:assets'
+import { Picture as AstroPicture } from 'astro:assets'
+import Picture from '@ui/Picture/Picture'
 ---
 
 <MainLayout title="Главная">
@@ -14,14 +15,22 @@ import { Picture } from 'astro:assets'
 
       п.с. удалите коммент при подготовке проекта
     -->
+    <!--<AstroPicture-->
+    <!--  src={myImage}-->
+    <!--  alt="Example image."-->
+    <!--  quality={'high'}-->
+    <!--  formats={['webp']}-->
+    <!--  fallbackFormat="jpg"-->
+    <!--  width={800}-->
+    <!--  densities={[2]}-->
+    <!--/>-->
+
     <Picture
-      src={myImage}
-      alt="Example image."
-      quality={'high'}
-      formats={['webp']}
-      fallbackFormat="jpg"
-      width={800}
-      densities={[2]}
+      name="mountain"
+      alt="Example image"
+      format="jpg"
+      width={1920}
+      height={1280}
     />
     <p>hello</p>
   </Container>
