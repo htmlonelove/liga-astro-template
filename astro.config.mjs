@@ -49,6 +49,13 @@ export default defineConfig({
     open: './sitemap.html'
   },
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+        },
+      },
+    },
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
       cssCodeSplit: false, // css в один файл
