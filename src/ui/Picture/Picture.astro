@@ -1,5 +1,5 @@
 ---
-import type { ImageMetadata } from 'astro'
+import type { GetImageResult, ImageMetadata } from 'astro'
 import { getImage, Image } from 'astro:assets'
 
 type ImageFormat =
@@ -101,8 +101,8 @@ const getFormatedImages = async (
   return await Promise.all(formatedImages)
 }
 
-let desktopImages
-let adaptiveImages
+let desktopImages: GetImageResult[]
+let adaptiveImages: GetImageResult[]
 
 desktopImages = await getFormatedImages(src.desktop, width, formats)
 if (isAdaptive) {

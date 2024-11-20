@@ -56,10 +56,17 @@ export default defineConfig({
         output: {
           entryFileNames: 'scripts.js',
           assetFileNames: (assetInfo) => {
-            return assetInfo.name === 'style.css'
-              ? `${assetInfo.name}` // задается имя и папка (корень) для css
-              : `assets/${assetInfo.name}` // задается имя и папка картинкам
+            if (!assetInfo.names) return ''
+
+            return assetInfo.names[0] === 'style.css'
+              ? `${assetInfo.names[0]}` // задается имя и папка (корень) для css
+              : `assets/${assetInfo.names[0]}` // задается имя и папка картинкам
           }
+          // assetFileNames: (assetInfo) => {
+          //   return assetInfo.name === 'style.css'
+          //     ? `${assetInfo.name}` // задается имя и папка (корень) для css
+          //     : `assets/${assetInfo.name}` // задается имя и папка картинкам
+          // }
         }
       }
     },
