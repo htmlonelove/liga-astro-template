@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from 'astro/config'
+import { defineConfig, sharpImageService } from 'astro/config'
 import viteSassGlob from 'vite-plugin-sass-glob-import'
 import icon from 'astro-icon'
 
@@ -35,15 +35,19 @@ export default defineConfig({
     // inlineStylesheets: 'never', // запрещает инлайн стилей
   },
   image: {
-    service: squooshImageService()
+    service: sharpImageService()
   },
   integrations: [
     icon({
+      iconDir: 'src/shared/assets/icons',
       svgoOptions: {
         plugins: ['preset-default']
       }
     })
   ],
+  server: {
+    open: './sitemap.html'
+  },
   vite: {
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html

@@ -1,7 +1,6 @@
 // Vendors
 // ---------------------------------------
 @import "./vendors/normalize";
-@import "./vendors/swiper-bundle-9.4.1";
 
 // Globals
 // ---------------------------------------
@@ -14,10 +13,13 @@
 
 // UI Components
 // ---------------------------------------
-@import "../ui/**/*";
+@import "../../ui/**/*";
 
 
-// Components
-// ---------------------------------------
-@import "../components/**/*"; // компоненты из astro
-@import "./components/*";
+// // Components
+// // ---------------------------------------
+@import "../../components/**/*"; // компоненты из astro
+
+
+// // Modules
+@import "../../modules/**/*";
