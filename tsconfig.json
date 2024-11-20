@@ -9,7 +9,8 @@
       "@ui/*": ["src/ui/*.astro"],
       "@images/*": ["src/shared//images/*"],
       "@types": ["types"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@styles/*": ["src/shared/styles/*"]
     },
     "plugins": [
       {

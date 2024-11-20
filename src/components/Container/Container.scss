@@ -1,14 +1,17 @@
+@use "@styles/global/variables";
+@use "@styles/global/mixins";
+
 .container {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 var(--pd-lg);
 
-  @include vp-1024 {
+  @include mixins.vp-1024 {
     padding: 0 var(--pd-md);
   }
 
-  @include vp-767 {
+  @include mixins.vp-767 {
     padding: 0 var(--pd-sm);
   }
 
@@ -19,11 +22,11 @@
   &--big {
     padding: 0 220px;
 
-    @include vp-1024 {
+    @include mixins.vp-1024 {
       padding: 0 140px;
     }
 
-    @include vp-767 {
+    @include mixins.vp-767 {
       padding: 0 40px;
     }
   }

@@ -1,3 +1,5 @@
+@use "./variables";
+
 *,
 *::before,
 *::after {
@@ -8,14 +10,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-height: $height-100vh;
+  min-height: variables.$height-100vh;
 }
 
 html {
   font-style: normal;
   font-weight: 400;
-  font-family: $ff-rubik;
-  font-size: $fz-default;
+  font-family: variables.$ff-rubik;
+  font-size: variables.$fz-default;
   line-height: 1.5;
   color: var(--color-black);
 

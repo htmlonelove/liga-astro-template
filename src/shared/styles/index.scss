@@ -1,25 +1,25 @@
 // Vendors
 // ---------------------------------------
-@import "./vendors/normalize";
+@use "./vendors/normalize";
 
 // Globals
 // ---------------------------------------
-@import "./global/variables";
-@import "./global/mixins";
-@import "./global/functions";
-@import "./global/fonts";
-@import "./global/global";
-@import "./global/utils";
+@use "./global/variables";
+@use "./global/mixins";
+@use "./global/functions";
+@use "./global/fonts";
+@use "./global/global";
+@use "./global/utils";
 
 // UI Components
 // ---------------------------------------
-@import "../../ui/**/*";
+@use "../../ui/**/*";
 
 
 // // Components
 // // ---------------------------------------
-@import "../../components/**/*"; // компоненты из astro
+@use "../../components/**/*"; // компоненты из astro
 
 
 // // Modules
-@import "../../modules/**/*";
+@use "../../modules/**/*";
