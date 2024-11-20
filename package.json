@@ -18,7 +18,7 @@
     "prepare": "husky",
     "lint:prettier": "prettier -w **/*.{js,jsx,ts,tsx,md,mdx,astro} --config .prettierrc.cjs",
     "lint:eslint": "eslint src/**/*.{js,ts,jsx,tsx,astro} --fix",
-    "lint:stylelint": "stylelint **/*.scss",
+    "lint:stylelint": "stylelint **/*.scss --quiet-deprecation-warnings",
     "lint": "npm run lint:prettier & npm run lint:eslint & npm run lint:stylelint",
     "gen:component": "node ./util/component/gen-component.mjs",
     "gen:robots": "node ./util/create-robots-file.mjs",
