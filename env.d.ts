@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 import type { FocusLockType, ModalsType } from '@types'
 
 declare global {

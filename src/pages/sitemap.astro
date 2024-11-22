@@ -3,17 +3,7 @@ import Layout from '@layouts/root/root'
 import Container from '@components/Container/Container'
 import Title from '@ui/Title/Title'
 import { Icon } from 'astro-icon/components'
-
-const pageList = [
-  {
-    name: 'UI-kit',
-    href: 'ui-kit.html'
-  },
-  {
-    name: 'Главная',
-    href: 'index.html'
-  }
-]
+import { PAGES } from '@shared/const/'
 ---
 
 <Layout title="Список страниц">
@@ -26,7 +16,7 @@ const pageList = [
         <Title text="Список страниц" size="sm" />
         <ol>
           {
-            pageList.map((item) => (
+            PAGES.map((item) => (
               <li>
                 <a href={item.href}>{item.name}</a>
               </li>

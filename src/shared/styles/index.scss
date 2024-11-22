@@ -1,0 +1,25 @@
+// Vendors
+// ---------------------------------------
+@use "./vendors/normalize";
+
+// Globals
+// ---------------------------------------
+@use "./global/variables";
+@use "./global/mixins";
+@use "./global/functions";
+@use "./global/fonts";
+@use "./global/global";
+@use "./global/utils";
+
+// UI Components
+// ---------------------------------------
+@use "../../ui/**/*";
+
+
+// // Components
+// // ---------------------------------------
+@use "../../components/**/*"; // компоненты из astro
+
+
+// // Modules
+@use "../../modules/**/*";

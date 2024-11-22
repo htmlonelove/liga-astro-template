@@ -23,7 +23,7 @@ inquirer
       onlyShowValid: true,
       validate: (input) => {
         const dirName = input.split(path.sep).pop()
-        return ['components', 'layouts', 'ui'].includes(dirName)
+        return ['components', 'layouts', 'ui', 'modules'].includes(dirName)
       },
       transformer: (input) => {
         return input.split(path.sep).pop()

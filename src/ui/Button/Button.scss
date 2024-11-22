@@ -1,3 +1,7 @@
+@use "@styles/global/variables";
+@use "@styles/global/mixins";
+
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -10,9 +14,9 @@
   border-radius: 12px;
   background-color: var(--color-lavender);
   cursor: pointer;
-  transition: background-color $transition;
+  transition: background-color variables.$transition;
 
-  @include hover {
+  @include mixins.hover {
     background-color: var(--color-white);
   }
 
@@ -41,7 +45,7 @@
       color: var(--color-white);
     }
 
-    @include hover {
+    @include mixins.hover {
       background-color: var(--color-east-side);
     }
   }

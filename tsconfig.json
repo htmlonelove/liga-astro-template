@@ -5,9 +5,12 @@
     "paths": {
       "@components/*": ["src/components/*.astro"],
       "@layouts/*": ["src/layouts/*.astro"],
+      "@modules/*": ["src/modules/*.astro"],
       "@ui/*": ["src/ui/*.astro"],
-      "@images/*": ["src/images/*"],
-      "@types": ["types"]
+      "@images/*": ["src/shared//images/*"],
+      "@types": ["types"],
+      "@shared/*": ["src/shared/*"],
+      "@styles/*": ["src/shared/styles/*"]
     },
     "plugins": [
       {

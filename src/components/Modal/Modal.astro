@@ -33,4 +33,11 @@ const { mods, className, name } = Astro.props
       </button>
     </div>
   </div>
+  <script>
+    import { initModals } from './Modal'
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initModals()
+    })
+  </script>
 </div>

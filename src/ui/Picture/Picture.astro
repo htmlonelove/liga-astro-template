@@ -1,53 +1,147 @@
 ---
+import type { GetImageResult, ImageMetadata } from 'astro'
+import { getImage, Image } from 'astro:assets'
+
+type ImageFormat =
+  | 'svg'
+  | 'jpeg'
+  | 'jpg'
+  | 'png'
+  | 'tiff'
+  | 'webp'
+  | 'gif'
+  | 'avif'
+
 export interface Props {
-  path?: string
   name: string
-  format: 'jpg' | 'png' | 'jpeg'
-  mobileName?: string
-  mobileBreakpoint?: number
-  alt: string
+  // ширина изображения на десктопе
   width: number
-  height: number
+  // ширина адаптивного изображения (для генерации правильного размера картинки) - не нужно для svg, т.к. svg не будет оптимизировано
+  widthAdaptive?: number
+  type: ImageFormat
+  isAdaptive?: boolean
+  alt?: string
+  quality?: string | number
+  densities?: number[]
+  loading?: 'lazy' | 'eager'
+  mobileBreakpoint?: number
+  // дополнительные форматы
+  formats?: ImageFormat[]
+  folder?: string
+  postfix?: string
+  // установить true, если в dev-режиме нужно сгенерировать все форматы изображений, которые будут использоваться в продакшене
+  prodMode?: boolean
 }
 
+const isProd = import.meta.env.PROD
+
 const {
-  path = './images',
-  format,
-  alt,
-  width,
-  height,
   name,
-  mobileName,
-  mobileBreakpoint = 1023
+  width,
+  widthAdaptive,
+  type,
+  isAdaptive,
+  alt = '',
+  quality = 80,
+  densities = [2],
+  loading = 'lazy',
+  mobileBreakpoint = 1023,
+  formats = ['webp'],
+  folder = 'shared/assets/images',
+  postfix = 'mobile',
+  prodMode = isProd
 } = Astro.props
 
-const src = `${path}/${name}`
-const srcMobile = `${path}/${mobileName}`
+const isSvg = type === 'svg'
+
+const src = {
+  desktop: `/src/${folder}/${name}.${type}`,
+  adaptive: `/src/${folder}/${name}-${postfix}.${type}`
+}
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/shared/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp,tiff,avif}'
+)
+
+// задает параметры для генерации картинок
+const setImageParams = ({ srcImg, widthImg, format }) => {
+  const densitiesSourceImg = isSvg ? null : [1, ...densities]
+
+  if (!images[srcImg]) {
+    throw new Error(
+      `File ${srcImg} not found. Please check if it exists in the specified directory or verify the correctness of the file path.`
+    )
+  }
+
+  return {
+    src: images[srcImg](),
+    inferSize: true,
+    format,
+    type: `image/${format}`,
+    width: widthImg,
+    densities: densitiesSourceImg,
+    quality: isSvg ? null : quality
+  }
+}
+
+// генерирует картинки по заданным параметрам
+const getFormatedImages = async (
+  img: string,
+  widthImg: number,
+  formatsList: ImageFormat[]
+) => {
+  let formatedImages: ReturnType<typeof getImage>[] = []
+
+  for (const itemFormat of formatsList) {
+    const imagePromise = getImage(
+      setImageParams({ srcImg: img, widthImg, format: itemFormat })
+    )
+    formatedImages.push(imagePromise)
+  }
+  return await Promise.all(formatedImages)
+}
+
+let desktopImages: GetImageResult[]
+let adaptiveImages: GetImageResult[]
+
+desktopImages = await getFormatedImages(src.desktop, width, formats)
+if (isAdaptive) {
+  const widthImg = isSvg ? null : widthAdaptive
+  const formatImg = isSvg ? [type] : [...formats, type]
+  const imgFormats = prodMode ? formatImg : [type]
+  adaptiveImages = await getFormatedImages(src.adaptive, widthImg, imgFormats)
+}
 ---
 
 <picture>
   {
-    mobileName && (
+    isAdaptive && (
       <>
-        <source
-          srcset={`${srcMobile}.webp, ${srcMobile}@2x.webp 2x`}
-          type="image/webp"
-          media={`(max-width: ${mobileBreakpoint}px)`}
-        />
-        <source
-          srcset={`${srcMobile}@1x.${format}, ${srcMobile}@2x.${format} 2x`}
-          type={`image/${format}`}
-          media={`(max-width: ${mobileBreakpoint}px)`}
-        />
+        {adaptiveImages.map((image) => (
+          <source
+            srcset={isSvg ? image.src : image.srcSet.attribute}
+            type={isSvg ? 'image/svg+xml' : image.attributes.type}
+            media={`(max-width: ${mobileBreakpoint}px)`}
+          />
+        ))}
       </>
     )
   }
-  <source srcset=`${src}@1x.webp, ${src}@2x.webp 2x` type="image/webp" />
-  <img
-    src=`${src}@1x.${format}`
-    srcset=`${src}@2x.${format} 2x`
-    alt={alt}
+  {
+    prodMode &&
+      !isSvg &&
+      desktopImages &&
+      desktopImages.map((image) => (
+        <source srcset={image.srcSet.attribute} type={image.attributes.type} />
+      ))
+  }
+  <Image
+    src={images[src.desktop]()}
+    densities={isSvg ? null : densities}
+    format={type}
     width={width}
-    height={height}
+    quality={isSvg ? null : quality}
+    alt={alt}
+    loading={loading}
   />
 </picture>

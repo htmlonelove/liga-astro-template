@@ -6,7 +6,7 @@ import chalk from 'chalk'
 import inquirer from 'inquirer'
 
 const QUALITY = 80
-const IMAGES_PATH = 'src/assets/images'
+const IMAGES_PATH = 'src/shared/assets/images'
 const OUT_PATH = 'public/images'
 
 const optimizeImage = async (image, props, options) => {
