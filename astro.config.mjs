@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from 'astro/config'
+import { defineConfig, sharpImageService } from 'astro/config'
 import viteSassGlob from 'vite-plugin-sass-glob-import'
 import icon from 'astro-icon'
 
@@ -31,22 +31,31 @@ export default defineConfig({
   build: {
     format: 'file', // вытаскивает вложенные страницы в корень src/pages/subpage/subpage.html => dist/subpage.html
     assets: 'assets', // собирает скрипты и стили в папку dist/assets
-    assetsPrefix: '.', // добавляет `.` в пути скриптов и стилей
+    assetsPrefix: '.' // добавляет `.` в пути скриптов и стилей
     // inlineStylesheets: 'never', // запрещает инлайн стилей
   },
   image: {
-    service: squooshImageService(),
+    service: sharpImageService()
   },
   integrations: [
     icon({
+      iconDir: 'src/shared/assets/icons',
       svgoOptions: {
-        plugins: [
-          'preset-default'
-        ],
-      },
+        plugins: ['preset-default']
+      }
     })
   ],
+  server: {
+    open: './sitemap.html'
+  },
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+        },
+      },
+    },
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
       cssCodeSplit: false, // css в один файл
@@ -54,15 +63,20 @@ export default defineConfig({
         output: {
           entryFileNames: 'scripts.js',
           assetFileNames: (assetInfo) => {
-            return assetInfo.name === 'style.css'
-              ? `${assetInfo.name}` // задается имя и папка (корень) для css
-              : `assets/${assetInfo.name}` // задается имя и папка картинкам
-          },
-        },
-      },
+            if (!assetInfo.names) return ''
+
+            return assetInfo.names[0] === 'style.css'
+              ? `${assetInfo.names[0]}` // задается имя и папка (корень) для css
+              : `assets/${assetInfo.names[0]}` // задается имя и папка картинкам
+          }
+          // assetFileNames: (assetInfo) => {
+          //   return assetInfo.name === 'style.css'
+          //     ? `${assetInfo.name}` // задается имя и папка (корень) для css
+          //     : `assets/${assetInfo.name}` // задается имя и папка картинкам
+          // }
+        }
+      }
     },
-    plugins: [
-      viteSassGlob()
-    ],
-  },
+    plugins: [viteSassGlob()]
+  }
 })

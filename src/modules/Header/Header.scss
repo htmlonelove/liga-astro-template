@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 80px;
+
+  &__logo {
+    svg {
+      width: 170px;
+      height: 68px;
+    }
+  }
+}

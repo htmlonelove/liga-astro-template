@@ -5,8 +5,24 @@
     "paths": {
       "@components/*": ["src/components/*.astro"],
       "@layouts/*": ["src/layouts/*.astro"],
+      "@modules/*": ["src/modules/*.astro"],
       "@ui/*": ["src/ui/*.astro"],
-      "@images/*": ["src/images/*"]
-    }
-  }
+      "@images/*": ["src/shared//images/*"],
+      "@types": ["types"],
+      "@shared/*": ["src/shared/*"],
+      "@styles/*": ["src/shared/styles/*"]
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ],
+    "verbatimModuleSyntax": true
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "public",
+    "util"
+  ]
 }

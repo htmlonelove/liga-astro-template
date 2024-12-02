@@ -1,14 +1,24 @@
-export const astroTemplate = (componentName) =>
-  `---
-import './${componentName}.scss'
-
+export const astroTemplate = (componentName) => ({
+  content: `---
 interface Props {
-
+  className?: string
 }
 
-const { } = Astro.props
+const { className } = Astro.props
 ---
 
-`
+<div class:list={['${componentName.toLowerCase()}', className]}></div>
+`,
+  filename: `${componentName}.astro`
+})
 
-export const scssTemplate = () => ''
+export const scssTemplate = (componentName) => ({
+  content: `
+@use "@styles/global/variables";
+@use "@styles/global/mixins";
+@use "@styles/global/functions";
+
+.${componentName.toLowerCase()} {}
+`,
+  filename: `${componentName}.scss`
+})

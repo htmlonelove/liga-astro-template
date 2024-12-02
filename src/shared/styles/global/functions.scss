@@ -1,0 +1,86 @@
+// ---------------------------------
+// Пропорциональное изменение ширины элемента в зависимости от общей ширины контейнера.
+
+@function adaptive-width($element-width, $container-width, $koeff: 1) {
+  // element-width - ширина элемента из макета.
+  // container-width - доступная ширина контейнера без отступов из макета.
+  // koeff коэффицент скейлинга по пропорции.
+  @return calc(($element-width * $koeff / $container-width) * 100%);
+}
+
+// ---------------------------------
+// ❗ Использование скейлинга должно быть согласовано с командой и заказчиком.
+
+@function size-html($viewport, $koeff: 1) {
+  // viewport - переменная вьюпорта макета ($vp-1440 и тд.).
+  // koeff - коэффицент скейлинга.
+  @return calc($fz-default / $viewport) * 100vw * $koeff;
+}
+
+@function size($size) {
+  // функция size так же может использоваться отдельно (без size-html).
+  // если нужно использовать значения для шрифта в ремах.
+
+  @return calc(($size * 1px) / $fz-default) * 1rem;
+}
+
+// Использование скейлинга:
+// font-size в html {} это точка входа, через него и size-html контролируется весь скейлинг.
+// Если на каком-то брейкпоинте не нужен скейлинг укажите статическое значение для font-size.
+
+// global.scss
+// html {
+//   // Первым значением передана ширина макета, в данном случае десктоп макет шириной $vp-1440,
+//   // если у вас иная, то измените на актуальную ширину.
+//   // Вторым значением передан коэффицент для скейлинга, в данном случае сайт
+//   // от 1440px будет не так сильно скалироваться, чем без указания коэффицента.
+//   font-size: size-html($vp-1440, calc($vp-1440 / $vp-1920));
+
+//   @include vp-1439 {
+//     font-size: size-html($vp-1440);
+//   }
+
+//   @include vp-1023 {
+//     font-size: $fz-default;
+//   }
+
+//   @include vp-767 {
+//     font-size: size-html($vp-375);
+//   }
+// }
+
+// В блоках все значения указываются через функцию size.
+
+// block.scss
+// Хорошо ✅
+// .block {
+//   margin-bottom: size(40);
+//   font-size: size(18);
+
+//   @include vp-1439 {
+//     margin-bottom: size(24);
+//   }
+
+//   @include vp-767 {
+//     font-size: size(16);
+//   }
+// }
+
+// Плохо ❌
+// .block {
+//   margin-bottom: size(40);
+//   font-size: size(18);
+
+//   @include vp-1439 {
+//     margin-bottom: size(24);
+//   }
+
+//   @include vp-1023 {
+//     margin-bottom: 24px;
+//   }
+
+//   @include vp-767 {
+//     margin-bottom: size(24);
+//     font-size: size(16);
+//   }
+// }
