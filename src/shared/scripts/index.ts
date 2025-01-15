@@ -1,9 +1,9 @@
-import { mobileVhFix } from '@shared/helpers'
+import { initScaling } from '@scripts/modules/scaling'
 
-mobileVhFix()
 document.addEventListener(
   'DOMContentLoaded',
   () => {
+    initScaling()
     // initModals()
     // let accordions = new Accordions()
     // accordions.init()
