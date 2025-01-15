@@ -56,6 +56,12 @@ export default defineConfig({
         },
       },
     },
+    resolve: {
+      alias: {
+        '@': '/src',
+        '@styles': '/src/shared/styles/global'
+      },
+    },
     build: {
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
       cssCodeSplit: false, // css в один файл

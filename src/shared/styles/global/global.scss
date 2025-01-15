@@ -36,6 +36,11 @@ body {
 
   display: flex;
   flex-direction: column;
+
+  &.is-loading {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 main {

@@ -1,3 +1,7 @@
+@use "@styles/func";
+@use "@styles/variables";
+@use "@styles/mixins";
+
 .modal {
   position: fixed;
   top: 0;

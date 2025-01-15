@@ -1,6 +1,6 @@
-@use "@styles/global/variables";
-@use "@styles/global/mixins";
-
+@use "@styles/func";
+@use "@styles/variables";
+@use "@styles/mixins";
 
 .button {
   display: inline-flex;
