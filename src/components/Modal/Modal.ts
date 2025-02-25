@@ -61,7 +61,7 @@ function clearPreload(): void {
  */
 function addListeners(modal: HTMLElement): void {
   modal.addEventListener('click', onModalClickHandler)
-  modal.addEventListener('keydown', onModalKeyboardHandler)
+  window.addEventListener('keydown', onModalKeyboardHandler)
 }
 
 /**
@@ -70,7 +70,7 @@ function addListeners(modal: HTMLElement): void {
  */
 function removeListeners(modal: HTMLElement): void {
   modal.removeEventListener('click', onModalClickHandler)
-  modal.removeEventListener('keydown', onModalKeyboardHandler)
+  window.removeEventListener('keydown', onModalKeyboardHandler)
 }
 
 /**
