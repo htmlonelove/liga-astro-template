@@ -1,4 +1,20 @@
-@use "./variables";
+@use "variables" as *;
+@use "func" as *;
+
+:root {
+  // colors
+  // Если нет палитры от дизайнера, то для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-lavender: #f8f5fc;
+  --color-fedora: #58485e;
+  --color-east-side: #b695c2;
+
+  // container paddings
+  --pd-lg: rem(72);
+  --pd-md: rem(48);
+  --pd-sm: rem(20);
+}
 
 *,
 *::before,
@@ -10,14 +26,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-height: variables.$height-100vh;
+  min-height: $height-100vh;
 }
 
 html {
   font-style: normal;
   font-weight: 400;
-  font-family: variables.$ff-rubik;
-  font-size: variables.$fz-default;
+  font-family: $ff-rubik;
+  font-size: $fz-default;
   line-height: 1.5;
   color: var(--color-black);
 
