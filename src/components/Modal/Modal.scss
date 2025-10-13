@@ -1,6 +1,6 @@
-@use "@styles/func";
-@use "@styles/variables";
-@use "@styles/mixins";
+@use "@styles/func" as *;
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
 
 .modal {
   position: fixed;

@@ -1,6 +1,6 @@
-@use "@styles/func";
-@use "@styles/variables";
-@use "@styles/mixins";
+@use "@styles/func" as *;
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
 
 .container {
   width: 100%;
@@ -8,11 +8,11 @@
   margin: 0 auto;
   padding: 0 var(--pd-lg);
 
-  @include mixins.vp-1024 {
+  @include vp-1024 {
     padding: 0 var(--pd-md);
   }
 
-  @include mixins.vp-767 {
+  @include vp-767 {
     padding: 0 var(--pd-sm);
   }
 
@@ -21,14 +21,14 @@
   }
 
   &--big {
-    padding: 0 220px;
+    padding: 0 rem(220);
 
-    @include mixins.vp-1024 {
-      padding: 0 140px;
+    @include vp-1024 {
+      padding: 0 rem(140);
     }
 
-    @include mixins.vp-767 {
-      padding: 0 40px;
+    @include vp-767 {
+      padding: 0 rem(40);
     }
   }
 }

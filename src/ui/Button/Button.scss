@@ -1,34 +1,34 @@
-@use "@styles/func";
-@use "@styles/variables";
-@use "@styles/mixins";
+@use "@styles/func" as *;
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
 
 .button {
   display: inline-flex;
   align-items: center;
 
-  padding: 12px 18px;
+  padding: rem(12) rem(18);
   width: fit-content;
-  gap: 7px;
+  gap: rem(7);
 
-  border: 2px solid var(--color-fedora);
+  border: max(rem(2), 2px) solid var(--color-fedora);
   border-radius: 12px;
   background-color: var(--color-lavender);
   cursor: pointer;
-  transition: background-color variables.$transition;
+  transition: background-color $transition;
 
-  @include mixins.hover {
+  @include hover {
     background-color: var(--color-white);
   }
 
   &__text {
-    font-size: 18px;
+    font-size: rem(18);
     color: var(--color-fedora);
     font-family: var(--ff-Rubik);
   }
 
   &__icon {
-    width: 24px;
-    height: 24px;
+    width: rem(24);
+    height: rem(24);
 
     svg {
       width: 100%;
@@ -45,7 +45,7 @@
       color: var(--color-white);
     }
 
-    @include mixins.hover {
+    @include hover {
       background-color: var(--color-east-side);
     }
   }

@@ -14,9 +14,9 @@ const { className } = Astro.props
 
 export const scssTemplate = (componentName) => ({
   content: `
-@use "@styles/func";
-@use "@styles/variables";
-@use "@styles/mixins";
+@use "@styles/func" as *;
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
 
 .${componentName.toLowerCase()} {}
 `,
