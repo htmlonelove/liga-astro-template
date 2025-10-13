@@ -1,18 +1,18 @@
-@use "@styles/func";
-@use "@styles/variables";
-@use "@styles/mixins";
+@use "@styles/func" as *;
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
 
 .header {
   display: flex;
   align-items: center;
 
   width: 100%;
-  height: func.rem(80);
+  height: rem(80);
 
   &__logo {
     svg {
-      width: func.rem(170);
-      height: func.rem(68);
+      width: rem(170);
+      height: rem(68);
     }
   }
 }

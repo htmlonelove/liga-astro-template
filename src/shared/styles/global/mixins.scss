@@ -1,33 +1,40 @@
-@use "./variables";
+@use "func" as *;
+@use "variables" as *;
 
 // Desktop-first
 
 @mixin vp-1919 {
-  @media (max-width: (variables.$vp-1920 - 1px)) {
+  @media (max-width: $vp-1920 - 1px) {
     @content;
   }
 }
 
 @mixin vp-1439 {
-  @media (max-width: (variables.$vp-1440 - 1px)) {
+  @media (max-width: $vp-1440 - 1px) {
+    @content;
+  }
+}
+
+@mixin vp-1279 {
+  @media (max-width: $vp-1280 - 1px) {
     @content;
   }
 }
 
 @mixin vp-1023 {
-  @media (max-width: (variables.$vp-1024 - 1px)) {
+  @media (max-width: $vp-1024 - 1px) {
     @content;
   }
 }
 
 @mixin vp-767 {
-  @media (max-width: (variables.$vp-768 - 1px)) {
+  @media (max-width: $vp-768 - 1px) {
     @content;
   }
 }
 
 @mixin vp-374 {
-  @media (max-width: (variables.$vp-375 - 1px)) {
+  @media (max-width: $vp-375 - 1px) {
     @content;
   }
 }
@@ -35,31 +42,37 @@
 // Mobile-first
 
 @mixin vp-375 {
-  @media (min-width: variables.$vp-375) {
+  @media (min-width: $vp-375) {
     @content;
   }
 }
 
 @mixin vp-768 {
-  @media (min-width: variables.$vp-768) {
+  @media (min-width: $vp-768) {
     @content;
   }
 }
 
 @mixin vp-1024 {
-  @media (min-width: variables.$vp-1024) {
+  @media (min-width: $vp-1024) {
+    @content;
+  }
+}
+
+@mixin vp-1280 {
+  @media (min-width: $vp-1280) {
     @content;
   }
 }
 
 @mixin vp-1440 {
-  @media (min-width: variables.$vp-1440) {
+  @media (min-width: $vp-1440) {
     @content;
   }
 }
 
 @mixin vp-1920 {
-  @media (min-width: variables.$vp-1920) {
+  @media (min-width: $vp-1920) {
     @content;
   }
 }
@@ -67,12 +80,61 @@
 // Only
 
 @mixin vp-768-1023 {
-  @media (min-width: variables.$vp-768) and (max-width: (variables.$vp-1024 - 1px)) {
+  @media (min-width: $vp-768) and (max-width: ($vp-1024 - 1px)) {
     @content;
   }
 }
 
-// ------
+// Retina
+
+@mixin retina {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+// Typography
+
+@mixin h1 {
+  font-weight: 400;
+  font-size: rem(96);
+  line-height: 1.04;
+}
+
+@mixin h2 {
+  font-weight: 400;
+  font-size: rem(80);
+  line-height: 0.9;
+}
+
+@mixin h3 {
+  font-weight: 400;
+  font-size: rem(30);
+  line-height: 1.33;
+}
+
+@mixin h4 {
+  font-weight: 400;
+  font-size: rem(20);
+  line-height: 1.2;
+}
+
+@mixin text {
+  font-weight: 400;
+  font-size: rem(16);
+  line-height: rem(20);
+}
+
+// Utils
+
+@mixin reset-btn {
+  font-family: inherit;
+  padding: 0;
+  background-color: var(--color-transparent);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 
 @mixin hover-focus {
   &:focus-visible {

@@ -1,33 +1,32 @@
-@use "./mixins";
-
+@use "./mixins" as *;
 
 .visually-hidden {
-  @include mixins.visually-hidden;
+  @include visually-hidden;
 }
 
 .hidden-from-tablet {
-  @include mixins.vp-768 {
+  @include vp-768 {
     /* stylelint-disable-next-line declaration-no-important */
     display: none !important;
   }
 }
 
 .hidden-desktop-only {
-  @include mixins.vp-1024 {
+  @include vp-1024 {
     /* stylelint-disable-next-line declaration-no-important */
     display: none !important;
   }
 }
 
 .hidden-tablet-only {
-  @include mixins.vp-768-1023 {
+  @include vp-768-1023 {
     /* stylelint-disable-next-line declaration-no-important */
     display: none !important;
   }
 }
 
 .hidden-mobile-only {
-  @include mixins.vp-767 {
+  @include vp-767 {
     /* stylelint-disable-next-line declaration-no-important */
     display: none !important;
   }
