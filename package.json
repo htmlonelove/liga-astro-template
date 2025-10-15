@@ -46,6 +46,7 @@
     "husky": "^9.1.6",
     "inquirer": "^9.2.17",
     "inquirer-file-tree-selection-prompt": "^2.0.5",
+    "lint-staged": "^16.2.4",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
@@ -58,5 +59,10 @@
     "typescript-eslint": "^8.8.1",
     "uppercamelcase": "^3.0.0",
     "vite-plugin-sass-glob-import": "^3.0.2"
+  },
+  "lint-staged": {
+    "src/**/*.astro": "check",
+    "src/**/*.{js,ts}": ["eslint", "prettier --write"],
+    "src/**/*.scss": ["stylelint", "prettier --write"]
   }
 }
