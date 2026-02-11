@@ -61,8 +61,16 @@
     "vite-plugin-sass-glob-import": "^3.0.2"
   },
   "lint-staged": {
-    "src/**/*.astro": "check",
-    "src/**/*.{js,ts}": ["eslint", "prettier --write"],
-    "src/**/*.scss": ["stylelint", "prettier --write"]
+    "src/**/*.astro": [
+      "astro check"
+    ],
+    "src/**/*.{js,ts}": [
+      "eslint",
+      "prettier --write"
+    ],
+    "src/**/*.scss": [
+      "stylelint",
+      "prettier --write"
+    ]
   }
 }
